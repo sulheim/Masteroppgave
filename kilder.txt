@@ -1,0 +1,13 @@
+Intro:
+http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3564184/?report=classic
+Historie:
+http://radiopaedia.org/articles/historical-aspects-of-ultrasound-in-medicine-1
+Hilbert Transform:
+http://www.fuchs-braun.com/media/d9140c7b3d5004fbffff8007fffffff0.pdf
+http://home.comcast.net/~szemengtan/LinearSystems/hilbert.pdf
+
+Databehandling/RF-signal:
+http://folk.ntnu.no/htorp/Undervisning/TTK4165/notater/IQdemodulation.pdf
+
+Matlab:
+http://www.mathworks.com/help/images/registering-an-image.html
