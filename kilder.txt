@@ -11,3 +11,6 @@ http://folk.ntnu.no/htorp/Undervisning/TTK4165/notater/IQdemodulation.pdf
 
 Matlab:
 http://www.mathworks.com/help/images/registering-an-image.html
+http://www.mathworks.com/help/images/intensity-based-automatic-image-registration.html
+http://www.ece.ubc.ca/~yewn/papers/DouglasLimThesis.pdf
+http://en.wikipedia.org/wiki/Image_registration

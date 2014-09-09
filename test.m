@@ -6,8 +6,8 @@ set(0,'defaultTextUnits','Normalized');
 % specify filename here ------------------
 fnameBase = 'D:\Phase shift project\Ultrasound image data\2014-05-02-09-47-04.rf';
 %fnameBase= 'D:\020514\2014-05-02-09-47-04.rf';
-% specify frame number here ------------------
-frameNumber= 150;
+% specify frame numbers here ------------------
+frameNumber = 1;
 % ------------------------------------------
 [RF,param] = ReadRF(fnameBase, '.bmode', frameNumber);
 % ------------------------------------------
@@ -32,7 +32,10 @@ BG2 = imtranslate(BG2, [2, 8]);
 %Try out intensity based image registration
 %Creat metric and optimizer. monomodal = images captured with same device
 [optimizer, metric] = imregconfig('monomodal');
-optimizer.MaximumIterations = 500;
+% metric = registration.metric.MattesMutualInformation();
+% optimizer = registration.optimizer.OnePlusOneEvolutionary();
+
+optimizer.MaximumIterations = 100;
 optimizer.MaximumStepLength = 0.001;
 %Setting moving and fixed image
 fixed = BG;
@@ -43,7 +46,7 @@ fixed = imresize(fixed, [256, 376]);
 figure(2); imshowpair(moving, fixed, 'ColorChannels','red-cyan');
 title('Colorchannel before fix')
 
-moving_reg = imregister(moving, fixed, 'rigid', optimizer, metric);
+moving_reg = imregister(moving, fixed, 'affine', optimizer, metric, 'DisplayOptimization', true);
 % figure; imshowpair(moving_reg, fixed);
 %%
 %resize
@@ -59,6 +62,24 @@ moving_reg = imregister(moving, fixed, 'rigid', optimizer, metric);
 figure(5); imshowpair(moving_reg, fixed, 'ColorChannels','red-cyan');
 title('Color channel after fix');
 
+[ssimval, ssimmap] = ssim(moving_reg, fixed);
+fprintf('The SSIM value is %0.4f.\n',ssimval);
 
 
+%%
+%Take in image 94 and look at difference
+frameNumber = 99;
+[RF_94, param] = ReadRF(fnameBase, '.bmode', frameNumber);
+BG_94 = 20.*log10(abs(hilbert(RF_94))/1e3+1);
+
+diff = imabsdiff(BG, BG_94);
+figure; imagesc(diff);
+colormap('gray');
+BG_94 = imresize(BG_94, [256, 376]);
+BG = imresize(BG, [256, 376]);
+figure(94); imshowpair(BG, BG_94, 'ColorChannels', 'red-cyan');
+title('Comparison of frame 1 and frame 94')
+
+figure(95); imshowpair(BG, BG_94, 'diff');
+title('Difference');
 

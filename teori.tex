@@ -40,6 +40,11 @@ which can be interpreted as a filtering operation with a quadrature filter which
 \subsubsection{Removing image artifacts}
 The operation of removing movement artifacts are based on the Matlab toolbox Image Processing and the use of image registration. \textit{imregister} and \textit{imregconfig} are the first two functions that have been applied and tested. This is intensity based automatic registration. Control point registration may be another option.
 
+Image registration in Matlab aligns one image to a fixed reference image by applying geometric transformations. In sonography displacement of images occur due to breathing and movement of the image target, and it is important to remove these movements to be able to do quantitative measurements on the images. Intensity based image registration find similar intensity patterns in the    the two images, and use this to map the misplaced image into correct position. 
+
+The process is initiated by making a \textit{metric} and an \textit{optimizer} object using the \textit{imregconfig} function. The \textit{metric} object measures the similarity of the two images. The \textit{optimizer} contains the optimization parameters such as maximum number of iterations, initial step length, optimization algorithm etc. Which optimization algorithm and how the image similarity is measured can be chosen in the \textit{imregconfig} function. The options for optimization algorithm are either a regular step gradient or a one-plus-one evolutionary method. For the metric object the similarity can be measured either by a mean square error approach or by making a mutual information metric. The mutual information metric maximizes the number of pixel with the same relative pixel value, and is best suited for images with different brightness ranges.[REF MATLAB]
+
+
 
 
 
