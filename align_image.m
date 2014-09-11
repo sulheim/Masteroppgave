@@ -1,4 +1,4 @@
-function aligned_image = align_image(fixed, moving, max_iter, max_step_length)
+function [aligned_image, optimization_data] = align_image(fixed, moving, max_iter, max_step_length)
 %Align the moving image to the fixed image using intensity based image
 %registration
     if nargin > 4;
@@ -25,9 +25,19 @@ function aligned_image = align_image(fixed, moving, max_iter, max_step_length)
     optimizer.MaximumIterations = max_iter;
     optimizer.MaximumStepLength = max_step_length;
     
+    initial_rms = rms(rms(fixed -moving));
+    sprintf('Initial rms is: %d', initial_rms)
+    initial_ms = mean(mean((fixed-moving).^2));
+    sprintf('Initial ms is: %d', initial_ms)
     %perform optimization
-    aligned_image = imregister(moving, fixed, 'affine', optimizer, metric, 'DisplayOptimization', true);
-    
+    [evalc_output, aligned_image]  = evalc('imregister(moving, fixed, ''affine'', optimizer, metric, ''DisplayOptimization'', true)');
+    final_rms = rms(rms(imsubtract(fixed, aligned_image)));
+    sprintf('Final rms is: %d', final_rms)
+    final_ms = mean(mean(fixed-aligned_image).^2);
+    sprintf('Final ms is: %d', final_ms)
+    %Fix evalcvalues
+    optimization_data = evalc2decimal(evalc_output);
+    sprintf(evalc_output)
 end
     
     

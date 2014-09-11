@@ -1,0 +1,10 @@
+\section{Work progress}
+\subsubsection{Motion correction}
+Motion correction is first task in this project. First a function for aligning two images was written using the \textit{imregister} function. The steepest descent and mean square error is applied as optimizer and metric. Next step is to run through a video sequence and perform motion correction on all frames. This requires a few important choices to be made, such as how to measure similarity and how to measure quality of optimization. First attempt is using mean square error as metric, and stop minimization when metric is less than x \% of initial metric. The RF data set will be resized without loss of information to a size of 512x256 pixels. The image registration can then be performed with or without logarithmic compression. This option will be investigated. Plot metric to observe evolution. The motion correction can be performed with two different approaches for the reference image. Either, use an average of the first few frames as a reference for all latter frames. Or, always use the one or two previous images as reference. These two methods will be compared. 
+
+
+\subsubsection{Getting contrast}
+In order to obtain the signal from the contrast agent a reference image has to be subtracted from the image. The ultrasound images are disturbed by speckle noise, which have to be filtered. This is applied by smearing the absolute value out over a few pixels to remove the worst speckle effects.
+
+\subsubsection{Evaluation of methods}
+To evaluate the final algorithms, a test bench will be applied where known random contrast and geometric transformation will be applied to a series of images, and there is then possible to make a quantitative estimation of the algorithms quality. This can also be used to optimize parameter input in respective functions in program. 

@@ -23,7 +23,7 @@ BG = 20.*log10(abs(hilbert(RF))/1e3+1);
 BG2 = imrotate(BG, -0.2, 'bilinear', 'crop');
 
 %make transformed image
-% BG2 = imtranslate(BG, [2, 8]);
+BG2 = imtranslate(BG2, [2, 8]);
 
 %Stretch image
 
@@ -32,13 +32,13 @@ BG2 = imrotate(BG, -0.2, 'bilinear', 'crop');
 fixed = BG;
 moving = BG2;
 
-% moving0 = imresize(moving, [256, 376]);
-% fixed0 = imresize(fixed, [256, 376]);
+%%%%%MAYBE INTERPOLATE WITH SPLINE%%%%%%%%%%%%
+moving = imresize(moving, [512, 512]);
+fixed = imresize(fixed, [512, 512]);
 figure(2); imshowpair(moving, fixed, 'ColorChannels','red-cyan');
-axis image;
 title('Colorchannel before fix')
 %%
-moving_reg = align_image(fixed, moving);
+[moving_reg, T] = align_image(fixed, moving);
 % figure; imshowpair(moving_reg, fixed);
 %%
 %resiz
@@ -49,8 +49,6 @@ moving_reg = align_image(fixed, moving);
 % figure(4); imshowpair(moving_reg, fixed, 'montage');
 % title('Montage after fix');
 
-moving_reg = imresize(moving_reg, [256, 376]);
-fixed = imresize(fixed, [256, 376]);
 figure(5); imshowpair(moving_reg, fixed, 'ColorChannels','red-cyan');
 title('Color channel after fix');
 
