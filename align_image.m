@@ -1,21 +1,21 @@
-function [aligned_image, optimization_data] = align_image(fixed, moving, max_iter, max_step_length)
+function [aligned_image, optimization_data] = align_image(fixed, moving, type, max_iter, max_step_length)
 %Align the moving image to the fixed image using intensity based image
 %registration
-    if nargin > 4;
+    if nargin > 5;
         error('Too many inputs. Maximum 4 input variables.');
     elseif nargin < 2;
         error('Too few input arguments. You need to specify two images as input arguments')
     end
     
     %Set default value to max_iter
-    default_max_iter = 100;
+    default_max_iter = 50;
     default_max_step_length = 0.01;
-    %giviing max_iter the defualtvalue if it is not given as input
+    %giving max_iter the defualtvalue if it is not given as input
     switch nargin
-        case 2
+        case 3
             max_iter = default_max_iter;
             max_step_length = default_max_step_length;
-        case 3
+        case 4
             max_step_length = default_max_step_length;
     end
     %%
@@ -35,7 +35,7 @@ function [aligned_image, optimization_data] = align_image(fixed, moving, max_ite
 %     %perform optimization
 %     figure; imshowpair(fixed, moving, 'ColorChannels','red-cyan')
 %     title('Difference before fix')
-    [evalc_output, aligned_image]  = evalc('imregister(moving, fixed, ''affine'', optimizer, metric, ''DisplayOptimization'', true)');
+    [evalc_output, aligned_image]  = evalc('imregister(moving, fixed, type, optimizer, metric, ''DisplayOptimization'', true)');
 %     figure; imshowpair(fixed, aligned_image, 'ColorChannels','red-cyan')
 %     title('difference after fix')
 %     final_mse = mse(fixed, aligned_image);

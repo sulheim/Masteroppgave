@@ -1,4 +1,3 @@
-%%Test.m
 close all;
 clear all;
 set(0,'defaultTextUnits','Normalized');
@@ -18,10 +17,6 @@ BG = 20.*log10(abs(hilbert(RF))/1e3+1);
 % imagesc([0 param.BmodeWidth(1)],[param.BmodeDepthOffset(1) param.BmodeDepth(1)],...
 %     BG, [2 25]);
 % colormap('gray');
-%%
-
-
-
 %%
 %make rotated image
 BG2 = imrotate(BG, -0.2, 'bilinear', 'crop');
@@ -64,25 +59,8 @@ subplot(2,2,3); imshowpair(log_compress(RF2), log_compress(RF), 'ColorChannels',
 title('Color channel before fix. RF image.');
 
 
-[RF_fixed, T2] = align_image(RF, RF2, 50, 0.01);
+[RF_fixed, T2] = align_image(RF, RF2, 50, 0.1);
 
 subplot(2,2,4); imshowpair(log_compress(RF_fixed), log_compress(RF), 'ColorChannels','red-cyan');
 title('Color channel after fix. RF image.');
-spaceplots(1,[0 0 0 0], [.02 .02]);
-%%
-% %Take in image 94 and look at difference
-% frameNumber = 99;
-% [RF_94, param] = ReadRF(fnameBase, '.bmode', frameNumber);
-% BG_94 = 20.*log10(abs(hilbert(RF_94))/1e3+1);
-% 
-% diff = imabsdiff(BG, BG_94);
-% figure; imagesc(diff);
-% colormap('gray');
-% BG_94 = imresize(BG_94, [256, 376]);
-% BG = imresize(BG, [256, 376]);
-% figure(94); imshowpair(BG, BG_94, 'ColorChannels', 'red-cyan');
-% title('Comparison of frame 1 and frame 94')
-% 
-% figure(95); imshowpair(BG, BG_94, 'diff');
-% title('Difference');
-% 
+spaceplots(gcf,[0 0 0 0], [.01 .01]);

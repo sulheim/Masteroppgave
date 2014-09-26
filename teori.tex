@@ -7,9 +7,12 @@ The basis of ultrasound imaging is the reflection of ultrasound at tissue bounda
 
 \subsection{Contrast agents}
 Contrast agents are used to increase the image sensitivity, by increasing image contrast between the relevant body tissues. In ultrasound imaging, this is accomplished by injecting a solution containing gas-filled microbubbles. 
-	The first contrast agents were made by saline, and was put to use by cardiologist in the 1960s for identification of mitral valve echoes. The saline was shaken before injection to create the microbubbles. Current available contrast agents are more complex, and consist of a carefully chosen gas enclosed in a suited shell. The shell has to be biocompatible and are made from fat or proteins. The advantage of a shell is increased lifetime and backscattering of ultrasound. The size of the microbubbles is approximately equal to the size of red blood cells ( 2-6 \mu m), and flow easily through the circulatory system. 
-	
 
+The first contrast agents were made by saline, and was put to use by cardiologists in the 1960s for identification of mitral valve echoes. The saline was shaken before injection to create the microbubbles. Current available contrast agents are more complex, and consist of a carefully chosen gas enclosed in a suited shell. The shell has to be biocompatible and is made from fat or proteins. The advantage of a shell is increased lifetime and scattering of ultrasound. The size of the microbubbles is approximately equal to the size of red blood cells ( 2-6 \mu m), and flow easily through the circulatory system. 
+
+The microbubbles have two important properties which cause large scattering. The first reason is the big difference in acoustic impedance between microbubbles and human tissue. The second property is the compressability of the gas inside the microbubble. The pressure fluctuations caused by the ultrasound forces the microbubble to expand during rarefaction and contract during compression. The microbubble will oscillate with the same frequency as the ultrasound source, and the scattering will be strongest at the resonance frequency of the microbubble. The resonant frequency is determined by the properties and the size of the shell. 
+
+\subsection{Our Bubble}
 \subsection{Transducer}
 
 \subsection{Image processing of B-mode images}
@@ -38,12 +41,21 @@ which can be interpreted as a filtering operation with a quadrature filter which
 \subsection{Harmonic Imaging}
 
 \subsection{Matlab}
+The most important to write here is how the methods used in matlab work IN THEORY, not how they are implemented in MATLAB.
+
+
 \subsubsection{Removing image artifacts}
 The operation of removing movement artifacts are based on the Matlab toolbox Image Processing and the use of image registration. \textit{imregister} and \textit{imregconfig} are the first two functions that have been applied and tested. This is intensity based automatic registration. Control point registration may be another option.
 
 Image registration in Matlab aligns one image to a fixed reference image by applying geometric transformations. In sonography displacement of images occur due to breathing and movement of the image target, and it is important to remove these movements to be able to do quantitative measurements on the images. Intensity based image registration find similar intensity patterns in the    the two images, and use this to map the misplaced image into correct position. 
 
+DETTE ER KANSKJE IKKE VIKTIG
 The process is initiated by making a \textit{metric} and an \textit{optimizer} object using the \textit{imregconfig} function. The \textit{metric} object measures the similarity of the two images. The \textit{optimizer} contains the optimization parameters such as maximum number of iterations, initial step length, optimization algorithm etc. Which optimization algorithm and how the image similarity is measured can be chosen in the \textit{imregconfig} function. The options for optimization algorithm are either a regular step gradient or a one-plus-one evolutionary method. For the metric object the similarity can be measured either by a mean square error approach or by making a mutual information metric. The mutual information metric maximizes the number of pixel with the same relative pixel value, and is best suited for images with different brightness ranges.[REF MATLAB]
+
+\subsection{Speckle}
+Speckle is a random, deterministic speckle pattern present in all types of coherent imaging, thus also in ultrasound images. The speckle is formed by scatterers smaller than the resolution of the imaging system, and the shape and size of the speckle pattern is determined by the dimensions of the imaging system and the structure of the imaged tissue.
+
+The speckle is an interference phenomenon created by coherent waves with different phase and amplitude added together. If several echo waves arrive at the same piezoelectric element within a time span shorter than the emitted pulse, the piezoelectric element will not be able to distinguish the waves, and their impact will be added. 
 
 
 

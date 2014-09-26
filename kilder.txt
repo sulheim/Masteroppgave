@@ -14,3 +14,6 @@ http://www.mathworks.com/help/images/registering-an-image.html
 http://www.mathworks.com/help/images/intensity-based-automatic-image-registration.html
 http://www.ece.ubc.ca/~yewn/papers/DouglasLimThesis.pdf
 http://en.wikipedia.org/wiki/Image_registration
+
+Speckle/ultralyd
+PDF: ultralydbasics / 1.ref kilder.bib

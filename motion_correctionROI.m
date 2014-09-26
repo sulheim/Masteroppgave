@@ -1,7 +1,5 @@
-function motion_correction(fnameBase, type, frame_indexes, ref_frame_idx)
-%Motion_correction aligns all images to the reference image, to remove
-%motion from movies. fname is filename to the RF file. ref_frame is first
-%image in sequence.
+function [ output_args ] = Untitled3(fnameBase, type, frame_indexes, ref_frame_idx)
+%Make motion correction after ROI is chosen
 
     if nargin > 4;
         error('Too many inputs. Maximum 3 input variables.');
@@ -55,6 +53,19 @@ function motion_correction(fnameBase, type, frame_indexes, ref_frame_idx)
    %%
    mse_before = zeros(1, numel(frame_indexes));
    mse_after = zeros(1, numel(frame_indexes));
+   %%
+   %Make mask
+   imagesc(ref_frame.BG);
+   h = imfreehand(gca);
+   mask = createMask(h);
+   m_ref = ref_frame.BG.*mask;
+   %%
+    metric = registration.metric.MeanSquares();
+    optimizer = registration.optimizer.RegularStepGradientDescent();
+%     
+    optimizer.MaximumIterations = 50;
+    optimizer.MaximumStepLength = 0.01;
+    optimizer.MinimumStepLength = 1e-4;
    
    tic
    figure(1); 
@@ -75,8 +86,10 @@ function motion_correction(fnameBase, type, frame_indexes, ref_frame_idx)
        mse_before(i) = mse(ref_frame.BG, tmp_BG);
         
        if mse_before(i) >= 0.01
-           [aligned_BG, optimization_data] = align_image(ref_frame.BG, tmp_BG, type, 50); 
-           
+           tmp_m = tmp_BG.*mask;
+           tform = imregtform(tmp_m, m_ref, type, optimizer, metric); 
+           aligned_BG  = imwarp(tmp_BG, tform,'OutputView',imref2d(size(tmp_BG)));
+
        else
            aligned_BG = tmp_BG;
            optimization_data = 0;
@@ -106,11 +119,9 @@ function motion_correction(fnameBase, type, frame_indexes, ref_frame_idx)
    corrected_data.frame_indexes = frame_indexes;
    corrected_data.mse_before = mse_before;
    corrected_data.mse_after = mse_after;
-   save_path = ['C:\Users\Snorre\Documents\masteroppgave\Masteroppgave\corrected_data\', name, 'motion_corrected_',type];
+   save_path = ['C:\Users\Snorre\Documents\masteroppgave\Masteroppgave\corrected_data\', name, 'motion_corrected_ROI',type];
    save(save_path, 'corrected_data')
+
+
 end
-
-
-   
-
 
