@@ -17,3 +17,15 @@ http://en.wikipedia.org/wiki/Image_registration
 
 Speckle/ultralyd
 PDF: ultralydbasics / 1.ref kilder.bib
+http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1661695
+http://iopscience.iop.org/0031-9155/51/13/R06/pdf/0031-9155_51_13_R06.pdf
+
+RF-processing of US
+http://ac.els-cdn.com/S1361841503000100/1-s2.0-S1361841503000100-main.pdf?_tid=d79ef22e-543d-11e4-8831-00000aab0f02&acdnat=1413358711_df69b589d8b6c642b0fd942e26398418
+
+US background subtraction
+http://hl107.math.msstate.edu/pdfs/rein/CITSA_06_background.pdf
+
+image registration
+http://tango.andrew.cmu.edu/~gustavor/42431-intro-bioimaging/readings/ch8.pdf
+http://ac.els-cdn.com/S1361841501800268/1-s2.0-S1361841501800268-main.pdf?_tid=469aee80-5448-11e4-b4f8-00000aab0f26&acdnat=1413363192_b81eaa62aba205df2008a11d63fcfe1b

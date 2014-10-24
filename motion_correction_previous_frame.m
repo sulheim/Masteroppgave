@@ -6,17 +6,17 @@ function motion_correction_previous_frame(fnameBase, type, frame_indexes)
         error('Too few inputs. Minimium 1 input variable.');
     end
     %%
-    %get number of frames in file
-    if exist('frame_indexes', 'var')
-        total_number_of_frames = length(frame_indexes);
-    else
-        total_number_of_frames = frame_counter(fnameBase);
-    end
+    %get file
+    disp(fnameBase)
+    matfile = load(fnameBase);
+    data = matfile.matfile.frames;
+    dim = size(data,3);
+    
         %%
     %set default values if not given in input
     %This should probably be modified to handle iq data as well
-    default_frame_indexes = 1:total_number_of_frames;
-    default_type = 'rigid';
+    default_frame_indexes = 1:dim;
+    default_type = 'affine';
     switch nargin
         case 1
             frame_indexes = default_frame_indexes;
@@ -29,7 +29,7 @@ function motion_correction_previous_frame(fnameBase, type, frame_indexes)
    %%
    %Make array for storing corrected BG_arrays. This may rather be a
    %cell arry?
-   corrected_frames = zeros(512, 512, numel(frame_indexes)); 
+   corrected_frames = zeros(512, 512, length(frame_indexes)); 
    %%
    %Run through all frames in frame_number and correct
    %Try Motion correction with previous image
@@ -38,43 +38,42 @@ function motion_correction_previous_frame(fnameBase, type, frame_indexes)
    mse_before = zeros(1, numel(frame_indexes));
    mse_after = zeros(1, numel(frame_indexes));
    
+   mse_before_prev = zeros(1, numel(frame_indexes));
+   mse_after_prev = zeros(1, numel(frame_indexes));
    tic
    figure(1); 
-   
-   %%Get first frame
-    %Get reference frame data
-   [ref_BG, ~, corrected_frames(:,:, 1:3)] = make_ref_frame(fnameBase, 1:3, ext);
-   
-   prev_BG = ref_BG;
+
    %%
+   %Get reference frame
+   ref_frame = sum(data(:,:,1:3), 3)/3;
+   prev_BG = ref_frame;
+   %%
+   
    %Loop through frames
-   for i = frame_indexes(4:end)
+   for i = frame_indexes
        txt = sprintf('Working on frame %d', i);
        disp(txt)
        
        %Get RF data for current frame and compress and resize
-       switch ext
-           case '.rf'
-               [curr_RF, ~] = ReadRF(fnameBase, '.bmode', i); 
-           case '.iq'
-               curr_RF = get_RF_from_IQ(fnameBase, i);
-       end
-       curr_BG = imresize(log_compress(curr_RF), [512, 512]);
+
+       curr_BG = data(:,:,i);
       
        %Calculate mse before correction
-       mse_before(i) = mse(ref_BG, curr_BG);
+       mse_before(i) = mse(ref_frame, curr_BG);
+       mse_before_prev(i) = mse(prev_BG, curr_BG);
        
        if mse_before(i) >= 0.001
-           [aligned_BG, optimization_data] = align_image(prev_BG, curr_BG, type, 50); 
+           [aligned_BG, optimization_data] = align_image(prev_BG, curr_BG, type, 2000); 
        else
            aligned_BG = curr_BG;
            optimization_data = 0;
        end
        
-       mse_after(i) = mse(ref_BG, aligned_BG);
+       mse_after(i) = mse(ref_frame, aligned_BG);
+       mse_after_prev(i) = mse(prev_BG, aligned_BG);
          
        %%%Check that correction is good
-       if mse_after(i)<=mse_before(i)
+       if mse_after_prev(i)<=mse_before_prev(i)
            corrected_frames(:,:,i) = aligned_BG;
            prev_BG = aligned_BG;
        else
@@ -85,7 +84,7 @@ function motion_correction_previous_frame(fnameBase, type, frame_indexes)
        
        if mod(i, 10)== 0
            t = toc;
-           remaining_time = round((t/i)*(total_number_of_frames-i));
+           remaining_time = round((t/(i-frame_indexes(1)))*(length(frame_indexes)-i));
            disp(['Time left: ', secs2hms(remaining_time)])
        end
        
@@ -97,7 +96,11 @@ function motion_correction_previous_frame(fnameBase, type, frame_indexes)
    corrected_data.frame_indexes = frame_indexes;
    corrected_data.mse_before = mse_before;
    corrected_data.mse_after = mse_after;
-   save_path = ['C:\Users\Snorre\Documents\masteroppgave\Masteroppgave\corrected_data\', name, 'motion_corrected_', type, '_prevframe'];
+   corrected_data.mse_before_prev = mse_before_prev;
+   corrected_data.mse_after_prev = mse_after_prev;
+   corrected_data.param = matfile.matfile.param;
+   
+   save_path = ['C:\Users\Snorre\Documents\masteroppgave\Masteroppgave\corrected_data\', name, 'motion_corrected_', type, '_prevframe2000'];
    save(save_path, 'corrected_data')
 end
 

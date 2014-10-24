@@ -80,7 +80,7 @@ function [ output_args ] = Untitled3(fnameBase, type, frame_indexes, ref_frame_i
            case '.iq'
                tmp_RF = get_RF_from_IQ(fnameBase, i);
        end
-       tmp_BG = imresize(log_compress(tmp_RF), [512, 512]);
+       tmp_BG = imresize(log_compress(tmp_RF), [512, 512], 'bilinear');
        
        %Calculate mse before correction
        mse_before(i) = mse(ref_frame.BG, tmp_BG);
