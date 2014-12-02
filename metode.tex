@@ -1,0 +1,72 @@
+%metode
+\section{Methods}
+\subsection{Sonazoid\texttrademark}
+Sonazoid\texttrademark is a contrast agent which has overcome all requirements stated in Section \ref{Contrast agents}, with a structure and size distribution as seen in Figure \ref{Fig:Sonazoid}. There is a core of perfluorcarbon gas, with a SI{4}{\nano\metre} thick lipid monolayer shell with shear modulus and viscosity equal \SI{50\3}{\mega\pascal} and \SI{0.8\0.1}{\newton\second\per\metre\squared}, respectively\cite{Hoff2001}. The density of the perfluorcarbon gas core is \SI{0.0098}{\gram\per\centi\metre\squared}, while the thermal diffusivity is \SI{0.07}{\centi\metre\squared\per\second}\cite{Healey2012}. 
+
+\begin{figure}[h]
+  \centering
+  \label{Fig:Sonazoid}
+  \includegraphics[scale=0.8]{figurer\sonazoid.png}
+  \caption{Left: The structure of Sonazoid\texttrademark , i.e. perfluorcarbon gas encapsulated in a lipid monolayer. Right: Size distribution of Sonazoid\texttrademark and red blood cells\cite{Healey2012}.}
+\end{figure}
+
+Sonazoid\texttrademark microbubbles has been used together with microdroplets to form the ACT\texttrademark clusters, or by itself in the test data sets. The microbubbles are shipped freeze-dried, and reconstituted with sterile water to crate a solution with a gas volume content of about 1\%. %Anyhting more here?
+
+
+
+
+\subsection{Vivo 2100}
+
+\subsection{Counting 16 animals}
+For 16 animals, similar series of images have been captured, and phase-shift bubbles have been counted manually.
+
+\subsection{Validation}
+\subsection{Initial validation}
+A thorough validation of the counting algorithm has been performed using the following approaches. The first validation was performed by evaluating the performance qualitatively on some given data sets, and compare it with prejudices. In video sequences with only Sonazoid\texttrademark bubbles, no phase-shift bubbles should be counted. After the introduction of phase-shift bubbles the phase-shift bubbles should stick, and stay for up to five minutes before decaying and disappearing. After the burst of high-frequency ultrasound, all Sonazoid\texttrademark bubbles should be destroyed, but none of the phase-shift bubble, i.e. the bubble count should not be affected by the high-frequency ultrasound. 
+
+ 
+\subsubsection{Synthesized data set}
+The second validation of the algorithm has been carried through by counting a synthesized data set with a known density of activated phase-shift bubbles. Video sequences of administration of Sonazoid\texttrademark microbubbles were used as a background, and artificial phase-shift bubbles were added to the background to create a data set with a known number of phase-shift bubbles.
+
+The algorithm for adding the phase-shift bubbles are now described. First, N random positions within the ROI is drawn from a uniform distribution. Then N intensities are drawn from a Gamma distribution, see subsection ??GAMMA??, and N frame numbers are drawn from a Poisson distribution to determine when the bubbles enter the tumour. For each bubble the intensity follows the slope of the bubble growth, shown in Figure \ref{fig:bubble growth}. These N bubbles are then log compressed and inserted into the video data. 
+
+
+\begin{figure}[h]
+  \centering
+  \label{Fig:Sonazoid}
+  \includegraphics[scale=0.8]{figurer\"fit of bubble growth.jpg"}
+  \caption{A growth slope is fit to data from an identified bubble in a true dataset.}
+\end{figure}
+
+%To get an unmasked estimation, we want to apply the validation directly onto the RF-data. Therefore, the transformation matrix from the image registration should be stored and applied to RF-data. Define a region of interest by drawing the boundary of the tumour. Then two uniformly distributed numbers should be drawn, to choose a random position within the ROI. Then draw an ???Intensity from intensity distribution??? and multiply with the point spread function. Add the bubble, and repeat the process until N bubbles have been applied. Apply the same bubbles to every RF-frame, and then run the bubble counting and compare with the number of bubbles applied. N should be $\#/area$, i.e. the density if bubbles, and there should be a varying density to investigate how the counting perform with increasing number of bubbles.
+
+\subsection{Phase-shift bubbles intensity distribution}
+A heuristic approach was used to estimate the intensity distribution for the activated phase-shift bubbles. For a set containing 63 identified phase-shift bubbles the maximum intensity was plotted for each frame, see Figure \ref{Fig:bubble_tic}. For each bubble the overall maximum value was used in a set, from which a gamma distribution was estimated, see Figure \ref{Fig:gamma_fit}.
+
+\begin{figure}[h]
+  \centering
+  \label{Fig:bubble_tic}
+  \includegraphics[scale=0.8]{figurer\bubble_tic.jpg}
+  \caption{Time-intensity curves for a set of phase-shift bubbles.}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \label{Fig:gamma_fit}
+  \includegraphics[scale=0.8]{figurer\gamma_fit.jpg}
+  \caption{Fit of a Gamma distribution to the distribution of maximum phase-shift bubble intensities.}
+\end{figure}
+
+\subsection*{Measuring the point spread function}
+The point spread function was measured from two different images, image a low solution of Sonazoid\texttrademark microbubbles in water and image of contamination in tap water. The size of the imaged microbubbles are smaller than the resolution of the imaging system, so the the bubbles seen in the image is effectively the point spread function. A two dimensional, normalized Gaussian function were fit to a single, easily identifiable bubble. 
+
+ 
+\subsection*{Measuring the scan plane height}
+The height of the ultrasound scan plan is necessary for the estimate of the number of phase-shift bubbles per volume. This height was measured by imaging a thin wire, running diagonally across the scan plane. The image is then a mapping of the string down on the x-axis. The height $H$ can the be calculated by measuring the length $L$ for a given angle $\Theta$.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.8]{Transducer_scan_plane_height.pdf}
+  \caption{Measurement of transducer scan plane height}
+\end{figure}
+
+

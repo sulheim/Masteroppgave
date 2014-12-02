@@ -1,0 +1,27 @@
+
+
+
+Matitk Demon- Ser bra ut- utforsk
+
+demon_test_1: frame 1:10:100
+50 iterations, param [1] = 128
+
+
+
+Matitk thinSplate- feature based. Ikke aktuell.
+
+Vurdering av MIRT
+1. similarity = MS 
+Meget spesielt bilde. blurry. ikke bra.
+
+2. CD2
+Samme som MS
+
+3.MI - funker ikke
+
+3. RC - blurry
+4. SAD - blurry
+5. CC - blurry
+6. SSD -blurry
+
+Konklusjon: antageligvis er det algoritmen som ikke passer så godt til bildet. 

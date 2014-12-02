@@ -1,0 +1,43 @@
+\section{Derivation of the Rayleigh-Plesset equation}
+The Rayleigh-Plesset equation is an ordinary differential equation which describe the non-linear oscillation of a gas bubble suspended in an infinite liquid, subject to an external sound wave. This equation is in the following derived using the energy balance between the liquid and the gas bubble \cite{Moss2014}. The equation can also be derived from the Navier-Stokes equations\cite{leighton2007derivation}.
+
+A few assumptions are required for the following derivation to be valid. We assume the wavelength of the pressure field to be way larger then the size of the gas bubble, i.e. $d << \lambda$. The bubble is spherical and spatially uniform conditions within the bubble exist at all times. We can neglect gravity and bulk viscosity. There is no flow of either matter of heat through the boundary of the bubble. The density of the gas is significantly smaller then the liquid density, and the gas within the bubble can be considered an ideal gas. Using these assumptions the oscillation will be an adiabatic process.  Newton's notation for the time-derivative is used.
+
+Consider an oscillating bubble suspended in incompressible fluid. Because of the incompressility of the fluid, the fluid velocity $u(r,t)$ has to follow the inverse square law, i.e. 
+
+\begin{equation}
+\eqref{eq:1}
+u(r,t) = \frac{R(t)^2}{r(t)^2}\dot{R}(t).
+\end{equation}
+Here $R(t)$ is the bubble radius, $\dot{R}(t)$ the velocity of the boundary and $r$ any radius larger or equal $R$. 
+
+The kinetic energy $E_k$ of the fluid caused by the oscillating bubble is then
+\begin{equation}
+\label{kinetic energy}
+E_k = \frac{\rho_l}{2}\int_R^\infty u(r,t)4\pi r^2 dr = 2\pi\rho_l R^3 \dot{R}^2,
+\end{equation}
+where $\rho_l$ is the liquid density.
+
+Far from the bubble the liquid pressure is given by $p_{\infty}(t) = p_0 + p(t)$, where $p(t) = p_a e^{i\omega t}$ is the time varying pressure caused by the sound wave and $p_0$ the hydrostatic pressure. For an adiabatic process we have that $pV^{\gamma}=\mathrm{constant}$. Here $V$ is the volume, $p$ the pressure and $\gamma$ the heat capacity ratio. The pressure is then only a function the radius $R$,
+\begin{equation}
+p(R) = p_{R_0}\left(\frac{V_{R_0}}{V(R)}\right)^{\gamma} =  p_{R_0}\left(\frac{R_0}{R}\right)^{3\gamma},
+\end{equation}
+
+where $R_0$ and $p_{R_0}$ are the equilibrium radius and pressure. 
+
+The work done to expand the bubble is only carried out by the net pressure, $\Delta p = P(R)-P_{\infty}(t)$, and the total work $W$ is
+
+\begin{equation}
+\label{bubble work}
+W = \int \Delta p dV = \int_{R_0}^R (p(R)-p_{\infty(t)})4\pi R^2 dR.
+\end{equation}
+
+The kinetic energy of the liquid must equal the work, and the Rayleigh-Plesset equation is obtained by equating and differentiating Equation \eqref{kinetic energy} and Equation \eqref{bubble work} with respect to $R$, 
+
+\begin{equation}
+\label{RPE}
+\frac{p_{R_0}\left(\frac{R_0}{R}\right)^{3\gamma}-p_0 - p(t)}{\rho_l} = \frac{3\dot{R}^2}{2}+R\ddot{R}.
+\end{equation}
+
+Note that $\frac{d\dot{R}^2}{dR} = 2\ddot{R}$. 
+%SKRIVE NOE MER?? \cite{Plesset1977} 

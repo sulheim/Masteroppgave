@@ -34,6 +34,6 @@ function [subtracted, background] = do_subtraction(file, varargin)% type, backgr
     
     %%
     files_4_subtraction = file(:,:, sub_idxs);
-    subtracted = im_sub(files_4_subtraction, background);%subtract background from all data images
+    subtracted = im_sub(files_4_subtraction, background, 'loop');%subtract background from all data images
 end
 

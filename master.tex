@@ -17,6 +17,9 @@
 \usepackage{siunitx}
 \usepackage{multirow}
 \usepackage{mathtools}
+\usepackage{units}%for nicefrac
+\usepackage{textcomp}%For trademark
+\usepackage{commath}%for derivatives
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
@@ -32,7 +35,7 @@
 %\usepackage{makeidx}     
 %\makeindex              
 
-\includeonly{teori}
+\includeonly{introduction, teori, metode, Rayleigh-plesset}
 % Selve dokumentet begynner:
 
 \begin{document}
@@ -70,6 +73,7 @@
 %     LaTeX om selv!
 \include{introduction}
 \include{teori}
+\include{metode}
 
 
 % Bibliografi/referanseliste skal komme før appendiks
@@ -78,9 +82,8 @@
 
 % En latex-kommando for å si fra at kapitlene/seksjonene fra nå 
 % av skal nummereres med store bokstaver:
-%\appendix
-
-%\input{appendiks}
+\appendix
+\input{Rayleigh-plesset}
 
 % Indeks for rapporten. Ta bort prosenttegn hvis du vil ha det med.
 %\printindex

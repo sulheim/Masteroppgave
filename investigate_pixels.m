@@ -9,8 +9,6 @@ y = input(prompt);
 n = length(x);
 a=zeros(n,1000);
 c_list = hsv(20);
-r = randi([0 20]);
-c = c_list(r,:);
 for k = 1:length(subtracted_arr)
     for g = 1:n
         a(g, k) = subtracted_arr(y(g),x(g),k);
@@ -20,7 +18,9 @@ close(fig);
 %%
 figure(1);
 for g = 1:n
-    semilogy(1:1000, a(g,:), 'color', c)
+    r = randi([0 20]);
+    c(g, :) = c_list(r,:);
+    semilogy(1:1000, a(g,:), 'color', c(g,:))
     title('Subtracted intensities')
     hold on;
 end
@@ -35,7 +35,7 @@ end
 figure(2);
 hold on;
 for g = 1:n
-    plot(gc(g,:), 'color', c)
+    plot(gc(g,:), 'color', c(g,:))
     title('correlation')
 end
 %%
@@ -52,6 +52,6 @@ end
 figure(3);
 hold on;
 for g = 1:n
-    plot(yc(g,:), 'color', c)
+    plot(yc(g,:), 'color', c(g,:))
     title('Running average')
 end
