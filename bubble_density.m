@@ -1,6 +1,6 @@
 function density = bubble_density(N,roi_mask, BmodeWidth, BmodeDepth, BmodeDepthOffset)
 %Calculate the density of bubbles (#/mm2) 
-    plane_height = 200; %(mm)
+    plane_height = 200; %(mm)%400 I guess.......
     pixel_width = BmodeWidth/512;%mm/pixel
     pixel_height = (BmodeDepth-BmodeDepthOffset)/512;%mm/pixel
     

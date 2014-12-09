@@ -1,40 +1,65 @@
 %metode
-\section{Methods}
+%Materials
+%Procedures
+%Instrumentation
+\section{Image recording}
 \subsection{Sonazoid\texttrademark}
-Sonazoid\texttrademark is a contrast agent which has overcome all requirements stated in Section \ref{Contrast agents}, with a structure and size distribution as seen in Figure \ref{Fig:Sonazoid}. There is a core of perfluorcarbon gas, with a SI{4}{\nano\metre} thick lipid monolayer shell with shear modulus and viscosity equal \SI{50\3}{\mega\pascal} and \SI{0.8\0.1}{\newton\second\per\metre\squared}, respectively\cite{Hoff2001}. The density of the perfluorcarbon gas core is \SI{0.0098}{\gram\per\centi\metre\squared}, while the thermal diffusivity is \SI{0.07}{\centi\metre\squared\per\second}\cite{Healey2012}. 
+Sonazoid\texttrademark is a contrast agent which has overcome all requirements stated in Section \ref{Contrast agents}, with a structure and size distribution as seen in Figure \ref{Fig:Sonazoid}. There is a core of perfluorcarbon gas, with a \SI{4}{\nano\meter} thick lipid monolayer shell with shear modulus and viscosity equal \SI{50(3)}{\mega\pascal} and \SI{0.8(1)}{\newton\second\per\meter\squared}, respectively\cite{Hoff2000}. The density of the perfluorcarbon gas core is \SI{0.0098}{\gram\per\centi\meter\squared}, while the thermal diffusivity is \SI{0.07}{\centi\meter\squared\per\second}\cite{Healey2012}. 
 
 \begin{figure}[h]
   \centering
   \label{Fig:Sonazoid}
-  \includegraphics[scale=0.8]{figurer\sonazoid.png}
+  \includegraphics[width=0.8\linewidth]{./figurer/sonazoid.png}
   \caption{Left: The structure of Sonazoid\texttrademark , i.e. perfluorcarbon gas encapsulated in a lipid monolayer. Right: Size distribution of Sonazoid\texttrademark and red blood cells\cite{Healey2012}.}
 \end{figure}
 
 Sonazoid\texttrademark microbubbles has been used together with microdroplets to form the ACT\texttrademark clusters, or by itself in the test data sets. The microbubbles are shipped freeze-dried, and reconstituted with sterile water to crate a solution with a gas volume content of about 1\%. %Anyhting more here?
 
+\subsection{Imaging setup}
+%16Mhz
+All ultrasound images used in this research has been imaged with the Vevo\textregistered 2100 imaging system from Visual Sonics. The imaging settings are presented in Table
 
-
-
-\subsection{Vivo 2100}
-
-\subsection{Counting 16 animals}
-For 16 animals, similar series of images have been captured, and phase-shift bubbles have been counted manually.
-
-\subsection{Validation}
-\subsection{Initial validation}
-A thorough validation of the counting algorithm has been performed using the following approaches. The first validation was performed by evaluating the performance qualitatively on some given data sets, and compare it with prejudices. In video sequences with only Sonazoid\texttrademark bubbles, no phase-shift bubbles should be counted. After the introduction of phase-shift bubbles the phase-shift bubbles should stick, and stay for up to five minutes before decaying and disappearing. After the burst of high-frequency ultrasound, all Sonazoid\texttrademark bubbles should be destroyed, but none of the phase-shift bubble, i.e. the bubble count should not be affected by the high-frequency ultrasound. 
+\subsubsection{Imaging modes}
+%Non-linear contrast????
+Two different imaging modes have been used, linear and non-linear contrast mode. Linear contrast mode has been used to visualize the ACT bubbles, while non-linear mode B-mode is used when only Sonazoid\texttrademark is administered. 
 
  
-\subsubsection{Synthesized data set}
-The second validation of the algorithm has been carried through by counting a synthesized data set with a known density of activated phase-shift bubbles. Video sequences of administration of Sonazoid\texttrademark microbubbles were used as a background, and artificial phase-shift bubbles were added to the background to create a data set with a known number of phase-shift bubbles.
+\subsection{The animals/cancer}
+\subsection{Counting 16 animals}
+For 16 animals, similar series of images have been captured, and phase-shift bubbles have been counted manually\cite{Healey2014}. The same video sequences have been counted automatically to compare results. 
 
-The algorithm for adding the phase-shift bubbles are now described. First, N random positions within the ROI is drawn from a uniform distribution. Then N intensities are drawn from a Gamma distribution, see subsection ??GAMMA??, and N frame numbers are drawn from a Poisson distribution to determine when the bubbles enter the tumour. For each bubble the intensity follows the slope of the bubble growth, shown in Figure \ref{fig:bubble growth}. These N bubbles are then log compressed and inserted into the video data. 
+\section{Image processing}
+Image processing is performed on the acquired RF-data to enable image registration, background subtraction and counting of ACT microbubbles. The envelope of the RF-data from the absolute value of the IQ-modulated data. The RF-data are IQ-modulated through a Hilbert transform. A logarithmic compression is performed to reduce the dynamic range before image registration. The images are resized from $13568x256$ to $512x512$ through decimation and bicubic interpolation.  
+
+\subsection{Image registration}
+Motion correction is performed on all videos. All frames are aligned to a reference frame through an affine transformation. A regular step gradient descent optimization scheme has been utilized to determine the transformation matrix. The maximum number of iterations in the optimization scheme was set to 2000, using only 1 pyramid level. The reference frame was constructed from an average of the three first frames of the video used for background subtraction.
+
+\subsection{Background subtraction}
+Before background subtraction the data is linearized. For each processed video a background is computed from a set of frames. The set of frames is chosen individually to minimize motion artifacts through a heuristic approach. The background is filtered with a maximum filter of size $3\times 3$. The background is then subtracted from all frames to segment the signal caused by ACT\texttrademark or Sonazoid\texttrademark bubbles. Negative values after subtraction are set to 0. 
+
+\subsection{Counting}
+The counting of ACT\texttrademark bubbles are based on a temporal coherence filter to distinguish between stuck and free-flowing bubbles. A correlation matrix $d$ of two consecutive images ,$A$ and $B$, is defined as
+\begin{equation}
+d_{ij} = 1-\frac{\abs(A_{ij}-B_{ij})}{A_{ij}+B_{ij}} \forall i,j .
+\end{equation}
+
+A running average over correlation matrix for the last 40 frames is performed and indexes where the running average exceeds a temporal coherence threshold, $d_{min}$ are considered stuck bubbles. The temporal coherence threshold is set to 0.85. This value is determined through a heuristic approach where the temporal coherence of manually identified bubbles are considered. A minimum intensity threshold is set to avoid counting of low-intensity noise. The minimum intensity threshold is set to 1000.
+
+\section{Qualitative validation}
+A qualitative validation of the counting algorithm was performed using the following approach. The counted video sequences was evaluated with the following prejudices. In video sequences with only Sonazoid\texttrademark bubbles, no phase-shift bubbles should be counted. After the introduction of phase-shift bubbles the phase-shift bubbles should stick, and stay for up to five minutes before decaying and disappearing. After the burst of high-frequency ultrasound, all Sonazoid\texttrademark bubbles should be destroyed, but none of the phase-shift bubble, i.e. the bubble count should not be affected by the high-frequency ultrasound. 
+
+
+\section{Quantitative validation}
+\subsection{Synthesized data set}
+A quantitative validation of the algorithm has been carried through by counting a synthesized data set with a known density of activated phase-shift bubbles. Video sequences of administration of Sonazoid\texttrademark microbubbles were used as a background, and artificial phase-shift bubbles were added to the background to create a data set with a known number of phase-shift bubbles.
+
+The algorithm for adding the phase-shift bubbles are now described. First, N random positions within the ROI is drawn from a uniform distribution. Then N intensities are drawn from a Gamma distribution, and N frame numbers are drawn from a Poisson distribution to determine when the bubbles enter the tumour. N bubbles are then generatedby applying the PSF to the drawn intensities. For each bubble the maximum intensity follows the slope of the bubble growth, shown in Figure \ref{fig:bubble growth}. These N bubbles are then log compressed and inserted into the video data. 
 
 
 \begin{figure}[h]
   \centering
-  \label{Fig:Sonazoid}
-  \includegraphics[scale=0.8]{figurer\"fit of bubble growth.jpg"}
+  \label{Fig:Sonazoid2}
+  \includegraphics[width=0.8\linewidth]{./figurer/fit of bubble growth.jpg}
   \caption{A growth slope is fit to data from an identified bubble in a true dataset.}
 \end{figure}
 
@@ -46,26 +71,26 @@ A heuristic approach was used to estimate the intensity distribution for the act
 \begin{figure}[h]
   \centering
   \label{Fig:bubble_tic}
-  \includegraphics[scale=0.8]{figurer\bubble_tic.jpg}
+  \includegraphics[width=0.8\linewidth]{./figurer/bubble_tic.jpg}
   \caption{Time-intensity curves for a set of phase-shift bubbles.}
 \end{figure}
 \begin{figure}[h]
   \centering
   \label{Fig:gamma_fit}
-  \includegraphics[scale=0.8]{figurer\gamma_fit.jpg}
+  \includegraphics[width=0.8\linewidth]{./figurer/gamma_fit.jpg}
   \caption{Fit of a Gamma distribution to the distribution of maximum phase-shift bubble intensities.}
 \end{figure}
 
 \subsection*{Measuring the point spread function}
-The point spread function was measured from two different images, image a low solution of Sonazoid\texttrademark microbubbles in water and image of contamination in tap water. The size of the imaged microbubbles are smaller than the resolution of the imaging system, so the the bubbles seen in the image is effectively the point spread function. A two dimensional, normalized Gaussian function were fit to a single, easily identifiable bubble. 
+The point spread function was measured from two different images, image a low solution of Sonazoid\texttrademark microbubbles in water and image of contamination in tap water. The size of the imaged microbubbles are smaller than the resolution of the imaging system, so the the bubbles seen in the image is effectively the point spread function(PSF). A two dimensional, normalized Gaussian function were fit to a single, easily identifiable bubble. 
 
  
 \subsection*{Measuring the scan plane height}
-The height of the ultrasound scan plan is necessary for the estimate of the number of phase-shift bubbles per volume. This height was measured by imaging a thin wire, running diagonally across the scan plane. The image is then a mapping of the string down on the x-axis. The height $H$ can the be calculated by measuring the length $L$ for a given angle $\Theta$.
+The height of the ultrasound scan plan is necessary for the estimate of the number of phase-shift bubbles per volume. This height was measured by imaging a thin wire, running diagonally across the scan plane. The image is then a mapping of the string down on the x-axis. The height, H,  can the be calculated by measuring the length L, for a given angle $\Theta$.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.8]{Transducer_scan_plane_height.pdf}
+  \includegraphics[width=0.8\linewidth]{Transducer_scan_plane_height.pdf}
   \caption{Measurement of transducer scan plane height}
 \end{figure}
 

@@ -1,6 +1,6 @@
 % Først spesifiserer vi hvilken dokumentklasse vi vil ha og noen 
 % globale opsjoner. Bytt ut 'article' med 'book' hvis du vil ha med kapitler.
-\documentclass[a4paper, twoside, titlepage, 11pt]{article}
+\documentclass[a4paper, twoside, titlepage, 12pt]{article}
 
 % Så sier vi fra om hvilke tilleggspakker vi trenger
 % til dokumentet vårt. De som du ikke trenger (se kommentaren) 
@@ -10,19 +10,21 @@
 \usepackage[english]{babel}
 \usepackage{geometry}                
 \usepackage{amsmath,amsfonts,amssymb} % matematikksymboler
-\usepackage{amsthm}                   % for å lage teoremer og lignende.
+%\usepackage{amsthm}                   % for å lage teoremer og lignende.
 \usepackage{graphicx}                 % inkludering av grafikk
 \usepackage{subfig}                   % hvis du vil kunne ha flere
                                       % figurer inni en figur
 \usepackage{siunitx}
+\sisetup{separate-uncertainty}%
+
 \usepackage{multirow}
 \usepackage{mathtools}
 \usepackage{units}%for nicefrac
 \usepackage{textcomp}%For trademark
 \usepackage{commath}%for derivatives
-
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+%
+%\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+%\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
 
 \usepackage{listings}                 % Fin for inkludering av kildekode
 
@@ -35,7 +37,7 @@
 %\usepackage{makeidx}     
 %\makeindex              
 
-\includeonly{introduction, teori, metode, Rayleigh-plesset}
+\includeonly{teori, metode, Rayleigh-plesset}
 % Selve dokumentet begynner:
 
 \begin{document}
@@ -77,13 +79,13 @@
 
 
 % Bibliografi/referanseliste skal komme før appendiks
-\bibliography{kilder}
+\bibliography{C:/Users/Snorre/Documents/bibtex/library}
 \bibliographystyle{plain}
 
 % En latex-kommando for å si fra at kapitlene/seksjonene fra nå 
 % av skal nummereres med store bokstaver:
 \appendix
-\input{Rayleigh-plesset}
+\include{Rayleigh-plesset}
 
 % Indeks for rapporten. Ta bort prosenttegn hvis du vil ha det med.
 %\printindex
