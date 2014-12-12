@@ -9,9 +9,9 @@ y = input(prompt);
 n = length(x);
 a=zeros(n,1000);
 c_list = hsv(20);
-for k = 1:length(subtracted_arr)
+for k = 1:length(sub.subtracted)
     for g = 1:n
-        a(g, k) = subtracted_arr(y(g),x(g),k);
+        a(g, k) = sub.subtracted(y(g),x(g),k);
     end
 end
 close(fig);

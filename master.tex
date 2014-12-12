@@ -12,8 +12,10 @@
 \usepackage{amsmath,amsfonts,amssymb} % matematikksymboler
 %\usepackage{amsthm}                   % for å lage teoremer og lignende.
 \usepackage{graphicx}                 % inkludering av grafikk
+\graphicspath{{figurer/}}
 \usepackage{subfig}                   % hvis du vil kunne ha flere
                                       % figurer inni en figur
+\usepackage[space]{grffile}
 \usepackage{siunitx}
 \sisetup{separate-uncertainty}%
 
@@ -22,6 +24,8 @@
 \usepackage{units}%for nicefrac
 \usepackage{textcomp}%For trademark
 \usepackage{commath}%for derivatives
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.2} 
 %
 %\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
@@ -73,7 +77,7 @@
 
 % NB: Vi trenger ikke ta med filendelsen .tex her. Den vet
 %     LaTeX om selv!
-\include{introduction}
+%\include{introduction}
 \include{teori}
 \include{metode}
 
