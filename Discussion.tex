@@ -1,3 +1,25 @@
 %Discussion
-\section{Comparison to existing program(VisualSonics)}
-\section{Comparison to Andy's manual counting}
+%Discuss methods then results
+\section{Discussion}
+%\subsection{Why existing algorithm are not applicable}
+%Several methods for distinguish stuck microbubbles from free flowing microbubbles and tissue were described in section \ref{existing algorithms}. The size of the ACT\textregistered phase-shift bubbles distinguish them from other microbubbles, and allow a new approach for segmentation. The method described in \cite{Rychak2006} has its obvious drawback of waiting for free bubbles to clear. During this time most of the ACT\textregistered will disappear as well. The first method described in \cite{Zhao2007} assume that no bubbles are stuck before the first image. 
+
+\subsection{Synthesized data set for validation}
+As there exist no 'Gold standard' for counting of phase-shift bubbles, a synthesized data set was needed to get a quantitative evaluation of the performance of the counting algorithm. By knowing the number of synthesized phase-shift bubbles we could determine the accuracy and precision for different number densities.
+
+The synthesized data set was constructed to replicate an administration of ACT\textregistered and Sonazoid\texttrademark microbubbles. 
+
+
+\subsection{Comparison to existing program(VisualSonics)}
+\subsection{Comparison to Andy's manual counting}
+
+\subsection{Decreasing performance with increasing bubble density}
+\subsection{Performance of motion correction}
+The motion correction applied in this work use a linear affine transformation to correct for motion in image. This can not correct for local deformations in the image. Hence, some videos will not be free of motion. A tumor is in general quite rigid, and there is thus rarely local deformations within the tumor region. Non-linear(local) image registration is therefore not necessary. Linear transformation has the benefit of being faster and more robust than non-linear transformations. 
+
+The current motion correction program is slow. Number of pyramidal steps and iterations can be more closely evaluated to increase the speed, but this was not prioritized in this work. 
+
+\subsection{Counting performance}
+\subsection{Findings in broader context}
+
+
