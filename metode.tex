@@ -144,6 +144,7 @@ d_{ij} = 1-\frac{\abs(A_{ij}-B_{ij})}{A_{ij}+B_{ij}} \forall i,j .
 A running average over correlation matrix for the last 40 frames is performed and indexes where the running average exceeds a temporal coherence threshold, $d_{min}$ are considered stuck bubbles. The temporal coherence threshold is set to 0.85. This value is determined through a heuristic approach where the temporal coherence of manually identified bubbles are considered. A minimum intensity threshold is set to avoid counting of low-intensity noise. The minimum intensity threshold is set to 1000. It is important to emphasize that this algorithm counts the number of ACT bubbles present, and not the total number of bubbles activated within the tumor after administration.  
 
 \subsection{Qualitative validation}
+\label{sec:qualitative}
 A qualitative validation of the counting algorithm was performed using the following approach. The counted video sequences was evaluated with the following prejudices. In video sequences with only Sonazoid\texttrademark bubbles, no phase-shift bubbles should be counted. After the administration of ACT the phase-shift bubbles should stick, and stay for up to five minutes before decaying and disappearing. After the burst of high-frequency ultrasound, all Sonazoid\texttrademark bubbles should be destroyed, but none of the phase-shift bubble, i.e. the bubble count should not be affected by the high-frequency ultrasound. The qualitative prejudices used to distinguish Sonazoid\texttrademark and phase-shift bubbles are stated in Table \ref{tab:qualitative}
 
 
@@ -212,6 +213,13 @@ The height of the ultrasound scan plan is necessary for the estimate of the numb
   \caption{Measurement of transducer scan plane height}
 \end{figure}
 
+\subsubsection{Choosing representative number}
+
+
 \subsection{Counting 16 animals}
-For 16 of 40 animals, stuck phase-shift bubbles have been counted manually\cite{Healey2014}. The same image sequences have been counted automatically and results are compared. 
+For 16 of 40 animals, stuck phase-shift bubbles have been counted manually\cite{Healey2014}. The same image sequences have been counted automatically and results are compared. It is only the videos showing ACT\textregistered administration that are compared.
+
+\subsubsection{Choosing representative number} 
+For each video counted a number is chosen to represent the counted number of bubbles in that animal. The number is chosen as the largest number counted, during the sequence, excluding the first frames. The first frames are exclude because they are affected by the last frames in the previous movie. The largest number is chosen because it has to be closest to actual number accumulated throughout that sequence.
+
 
