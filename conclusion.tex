@@ -4,5 +4,14 @@
 %Further work
 
 \section{Conclusion}
-A program for motion correction, background subtraction and counting of phase-shift bubbles is successfully developed, validated and applied to a data set containing 125 ultrasound image sequences of 16 different prostate tumor xenografts.   
+A program for motion correction, background subtraction and counting of phase-shift bubbles is successfully developed, validated and applied to a data set containing 125 ultrasound image sequences of 16 different prostate tumor xenografts. The program has been validated qualitatively to prejudices regarding the phase-shift bubble \texttrademark, and compared to manual counting of the same data. All prejudices and a good correlation  with results from manual counting support the credibility of the program. 
+
+A synthesized data set of in total 81 movies, based on three different backgrounds, was created. A given number of fictive phase-shift bubbles were inserted with position, intensity and at a time drawn from estimated distributions. The distributions were based on real data. This provided a quantitative validation of the program. For number densities below \SI{4}{bubbles\per\milli\meter\squared}, the relation between real number density and counted number density is close to linear. A figure showing the bias, precision and a 95\% confidence interval is shown in Figure \ref{Fig:counted_vs_inserted_inverse}.
+
+Above \SI{4}{bubbles\per\milli\meter\squared} the program experience a saturation, and the accuracy decrease as the number density increases. The relative standard deviation of the counted number density is shown to be ?? and independent of the number density.
+
 \subsection{Further work}
+If the program is to be applied on data with number density above \SI{4}{bubbles\per\milli\meter\squared}, effort should be put into the experienced saturation. This saturation occur because single bubbles are situated too close, and recognized as one large bubble. It should be possible to distinguish these separate bubbles by counting the number of local maxima within each bubble. This was tested without satisfying result, due to the inherent variations and noise present. A more robust method is maybe achieved by  2D smoothing of the identified bubbles before of local maxima. 
+	
+This program was suited, and based on linear B-mode images. Some non-linear data were processed, but the model validation is based solely on linear images. 
+

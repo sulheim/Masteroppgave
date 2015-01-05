@@ -2,27 +2,64 @@
 %Discuss methods then results
 \section{Discussion}
 %\subsection{Why existing algorithm are not applicable}
-%Several methods for distinguish stuck microbubbles from free flowing microbubbles and tissue were described in section \ref{existing algorithms}. The size of the ACT\textregistered phase-shift bubbles distinguish them from other microbubbles, and allow a new approach for segmentation. The method described in \cite{Rychak2006} has its obvious drawback of waiting for free bubbles to clear. During this time most of the ACT\textregistered will disappear as well. The first method described in \cite{Zhao2007} assume that no bubbles are stuck before the first image. 
+%Several methods for distinguish stuck microbubbles from free flowing microbubbles and tissue were described in section \ref{existing algorithms}. The size of the ACT\texttrademark phase-shift bubbles distinguish them from other microbubbles, and allow a new approach for segmentation. The method described in \cite{Rychak2006} has its obvious drawback of waiting for free bubbles to clear. During this time most of the ACT\texttrademark will disappear as well. The first method described in \cite{Zhao2007} assume that no bubbles are stuck before the first image. 
+\subsection{Performance of motion correction}
+The motion correction applied in this work use a linear affine transformation to correct for motion in image. This can not correct for local deformations in the tissue or movements out of the image plane. Hence, some videos will not be free of motion. A tumor is in general quite rigid, and there is thus rarely local deformations within the tumor region. Non-linear(local) image registration is therefore not necessary. Linear transformation has the benefit of being faster and more robust than non-linear transformations. The current motion correction program is slow. Number of pyramidal steps and iterations can be more closely evaluated to increase the speed, but this was not prioritized in this work. 
+
+\subsection{Qualitative validation}
+In Section \ref{sec:qualitative} there are several results which support the claim that the counted bubbles are phase-shift bubbles. Figure \ref{High power US non-lin} and \ref{High power US lin} show that the counted bubbles are not destroyed by high power US bursts. This proves that the counted bubbles are not Sonazoid\texttrademark microbubbles. There is indeed an increase in some of the data sets. This may come from stuck emulsion droplets beeing activated by the high power ultrasound. In Figure \ref{Fig:high_power_US} we see thre bubbles beeing activated by the high-power ultrasound.
+
+In Figure \ref{Fig:bubble_kinetic} and the corresponding movie, the phase-shift bubble dynamics are visible, and we see how a phase-shift bubbles is getting stuck, release, and attach to another location. The adhesion and activation is also clear in Figure \ref{bubble_zoom}. The activation and dynamics implies that the identified bubble is an ACT\texttrademark bubble.
+
+The number density curves as a function of time, such as Figure \ref{Fig:tic_count}, display that the phase-shift bubble stay for several minutes, which may increase the drug retention time by fully or partially blocking the vasculature.
 
 \subsection{Synthesized data set for validation}
 As there exist no 'Gold standard' for counting of phase-shift bubbles, a synthesized data set was needed to get a quantitative evaluation of the performance of the counting algorithm. By knowing the number of synthesized phase-shift bubbles we could determine the accuracy and precision for different number densities.
 
-The synthesized data set was constructed to replicate an administration of ACT\textregistered and Sonazoid\texttrademark microbubbles. To replicate the inflow, time of appearance, maximum intensity and position were chosen randomly from distributions generated from real data. In real data some phase-shift bubbles getting stuck after they have grown big or releasing from the stuck position. This is not accounted for in the synthesized data. 
+The synthesized data set was constructed to imitate an administration of ACT\texttrademark and Sonazoid\texttrademark microbubbles. To replicate the inflow, time of appearance, maximum intensity and position were chosen randomly from distributions generated from real data. In real data some phase-shift bubbles are getting stuck after they have grown big or releasing from the stuck position. This is not accounted for in the synthesized data. 
+
+\subsection{Performance of counting algorithm}
+From Figure \ref{Fig:Number density of counted bubbles} we see a good correlation with the number density counted manually. This support the performance of the developed algorithm.
+
+The performance of the counting for all three backgrounds is shown in Figure \ref{Fig:counted_vs_inserted_all}. The counting algorithm experience a saturation as the inserted density passes 	\SI{\sim4}{bubbles\per\milli\meter\squared}. \ref{Fig:counted_vs_inserted_inverse}. This is an expected \texttrademark. When the density of bubbles increase the chance of two or more bubbles beeing adjacent increase as well, and they may be counted as one large bubble. This is seen in Figure \ref{Fig:saturation}. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{saturation.png}
+	 \cprotect\caption{Saturation is clearly seen in as large clusters of bubbles recognized as one bubble. The corresponding movie is found at DIR! \verb|2014-05-01-11-44-15_PS_counted_258.avi|.}
+	\label{Fig:saturation}
+\end{figure}
+
+If we only consider the lower end of the inserted density, see  Figure \ref{Fig:counted_vs_inserted_all_small}, there is almost a linear relationship between the counted and inserted number of bubbles. By inverting the axes and fitting a linear curve, we get an estimate of the accuracy and precision of the counting algorithm, see Figure\ref{Fig:counted_vs_inserted_inverse}. We see that the algorithm is slightly under-counting. 
 
 
-\subsection{Comparison to existing program(VisualSonics)}
-\subsection{Comparison to Andy's manual counting}
+\subsection{Comparison to existing program (VisualSonics)}
+From Figure \ref{Fig:compare VisualSonics} we see a comparison of the Visual Sonic's and our program's performance in terms of motion correction and background subtraction. An improved background subtraction make the single phase-shift bubbles more visible, and the noise and motion artefacts are strongly reduced.
 
-\subsection{Decreasing performance with increasing bubble density}
-\subsection{Performance of motion correction}
-The motion correction applied in this work use a linear affine transformation to correct for motion in image. This can not correct for local deformations in the image. Hence, some videos will not be free of motion. A tumor is in general quite rigid, and there is thus rarely local deformations within the tumor region. Non-linear(local) image registration is therefore not necessary. Linear transformation has the benefit of being faster and more robust than non-linear transformations. 
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{vevo_10_40_53.png}
+		\caption{A}
+	\end{minipage}%
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{10_40_53_snorre.png}
+		\caption{B}
+	\end{minipage}%
+	 \cprotect\caption{The same video sequence processed with the Visual Sonics program(a) and our programmed(b). The improveed background subtraction increase the visibility of the individual bubbles, and there is a significant motion correction. The corresponding movies ar found at DIR!\verb|#01 2014-04-28-10-40-53.avi| and \verb|2014-04-28-10-40-53_count_and_color_11_to_1000dilate_1_intensity_1000ct_0.85running_avg.avi|.}
+	\label{Fig:compare VisualSonics}
+\end{figure}
 
-The current motion correction program is slow. Number of pyramidal steps and iterations can be more closely evaluated to increase the speed, but this was not prioritized in this work. 
-
-\subsection{Counting performance}
-
-The performance of the counting algorithm is is seen in Figure(Insert movie)
+\subsection{Non-linear imaging}
+\subsection{Performance for each of the backgrounds in synthesized data set.}
 
 \subsection{Findings in broader context}
+The developed and validated algorithm is a tool which will increase the understanding of the activation, administration and \texttrademark of the ACT\texttrademark bubbles. Compared to manual counting this program give increased efficiency, and a result with a known accuracy and precision. It is also shown that the chosen method of motion correction, background subtraction and stuck bubble identification provides satisfying results. Although this program is tailored to the ACT\texttrademark bubbles, these method may apply to similar problems where linear imaging is favourable. 
 
+The focal plane was measured to \SI{400}{\micro\meter}.If the total volume of the tumor is estimated, it is possible to compute the total number of deposited ACT\texttrademark bubbles. Assuming a linear relationship between total amount of drug delivered and number of stuck bubbles, it is possible to make a relative estimate of the drug delivered. This can be compared to results from ongoing treatment studies.
+
+
+Relate to amount of bubbles introduced.
+
+Relate to concentration for each animal.
 

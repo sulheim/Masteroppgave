@@ -4,17 +4,18 @@
 %Instrumentation
 \section{Materials and methods}
 \subsection{Image recording}
-\subsubsection{contrast agent}
-Sonazoid\texttrademark microbubbles are used together with microdroplets to form the ACT\texttrademark clusters, and by itself as contrast agent. The microbubbles are shipped freeze-dried, and reconstituted with sterile water to create a solution with a gas volume content of about 1\%. %Anyhting more here?
+\subsubsection{Contrast agent}
+
+The Sonazoid\texttrademark microbubbles are used together with microdroplets to form the ACT\texttrademark clusters, and by itself as contrast agent. The microbubbles are shipped freeze-dried, and reconstituted with sterile water to create a solution with a gas volume content of about 1\%. %Anyhting more here?
 
 \subsubsection{Imaging setup}
 %16Mhz
-All ultrasound images used in this research has been imaged with the Vevo\textregistered 2100 imaging system from Visual Sonics.
+All ultrasound images used in this research has been imaged with the Vevo\texttrademark 2100 imaging system from Visual Sonics.
 Two different imaging modes have been used, linear and non-linear contrast mode. Linear contrast mode was used to emphasize the ACT bubbles, while non-linear mode enhance the contrast from the Sonazoid\texttrademark microbubbles. The imaging settings are presented in Table \ref{tab:Vevo Ultrasound settings}.
 
 \begin{table}[htb]
-\label{tab:Vevo Ultrasound settings}
 \caption{Settings used for the Vevo 2100 ultrasound apparatus.}
+\label{tab:Vevo Ultrasound settings}
 \begin{center}
 \begin{tabular}{@{}l l l @{}}\toprule
 & \multicolumn{2}{c}{Value} \\ \cmidrule(r){2-3}
@@ -46,12 +47,12 @@ Contrast & 50 & 50 \\
 \end{center}
 \end{table}
 
-For activation of the ACT\textregistered a transducer was placed in the water bath a fixed distance from the tumor. This transducer was either a V-scan or a Vivid MS5. The settings used are given in Table \ref{tab:V-scan vivid}.
+For activation of the ACT\texttrademark a transducer was placed in the water bath a fixed distance from the tumor. This transducer was either a V-scan or a Vivid MS5. The settings used are given in Table \ref{tab:V-scan vivid}.
 
  
 \begin{table}[htb]
+\caption{Settings used for V-scan and Vivid MS5 to activate ACT\texttrademark.}
 \label{tab:V-scan vivid}
-\caption{Settings used for V-scan and Vivid MS5 to activate ACT\textregistered.}
 \begin{center}
 \begin{tabular}{@{}l l l @{}}\toprule
 & \multicolumn{2}{c}{Value} \\ \cmidrule(r){2-3}
@@ -69,13 +70,13 @@ MI & \num{0.8} & \num{0.28} \\
 \end{center}
 \end{table}
 
-The mice were administered anesthesia before injection of ACT\textregistered or Sonazoid\texttrademark. The mice were placed on a rat handling table, with the left leg lifted horizontally and fixed. Ultrasound gel and a water-bath bag was put on top of the tumor. The imaging and activation transducers were fixed inside the water-bath-bag. The setup is seen in Figure
+The mice were administered anesthesia before injection of ACT\texttrademark or Sonazoid\texttrademark. The mice were placed on a rat handling table, with the left leg lifted horizontally and fixed. Ultrasound gel and a water-bath bag was put on top of the tumor. The imaging and activation transducers were fixed inside the water-bath-bag. The setup is seen in Figure
 
 \begin{figure}[h]
   \centering
+  \includegraphics[width=\linewidth]{experimental setup.png}
+  \caption{Experimental setup for activation and imaging. The Vevo MS250 transducer (A) and the V-scan transducer (B) is placed within the water-bath. The tumor side (C) of the mouse faces the camera.}
   \label{Fig:setup}
-  \includegraphics[width=0.8\linewidth]{experimental setup.png}
-  \caption{Experimental setup for activation and imaging. The Vevo MS250 transducer(A) and the V-scan transducer(B) is placed within the water-bath. The tumor side(C) of the mouse faces the camera.}
 \end{figure}
 
 
@@ -98,11 +99,11 @@ The general protocol applied is given below\cite{Healey2014}. A detailed list, i
 		\item Sonazoid\texttrademark administration. Non-linear contrast mode.
 		\item Post-administration images. In general 5 minutes after injection. Non-linear contrast mode.
 		\end{enumerate}
-	\item Imaging and activation of ACT\textregistered.
+	\item Imaging and activation of ACT\texttrademark.
 		\begin{enumerate}
 		\item Pre-injection images. Non-linear contrast mode.
 		\item Pre-injection images. Linear contrast mode.
-		\item ACT\textregistered administration. Linear contrast mode.
+		\item ACT\texttrademark administration. Linear contrast mode.
 		\item Post-administration images. Linear contrast mode.
 		\item Post-administration images. Non-linear contrast mode.
 		\item Post-administration images. Linear contrast mode.
@@ -128,10 +129,10 @@ Image processing is performed on the acquired RF-data to enable image registrati
 Motion correction is performed on all videos. All frames are aligned to a reference frame through an affine transformation. A regular step gradient descent optimization scheme has been utilized to determine the transformation matrix. The maximum number of iterations in the optimization scheme was set to 2000, using only 1 pyramid level. The reference frame was constructed from an average of the three first frames of the video used for background subtraction.
 
 \subsubsection{Background subtraction}
-Before background subtraction the data is linearized. For each processed video a background is computed from a set of frames. The set of frames is chosen individually to minimize motion artifacts through a heuristic approach. The background is filtered with a maximum filter of size $3\times 3$. The background is then subtracted from all frames to segment the signal caused by ACT\texttrademark or Sonazoid\texttrademark bubbles. Negative values after subtraction are set to 0. 
+Before background subtraction the data is linearized. For each processed video a background is computed from a set of frames. The set of frames is chosen individually to minimize motion artefacts through a heuristic approach. The background is filtered with a maximum filter of size $3\times 3$. The background is then subtracted from all frames to segment the signal caused by ACT\texttrademark or Sonazoid\texttrademark bubbles. Negative values after subtraction are set to 0. 
 
 \subsubsection{Counting}
-Before counting of ACT bubbles is conducted, an region-of-interest(ROI) is defined. The ROI is drawn to include most of the tumor, while avoiding skin and other healthy tissue. Only ACT bubbles within the ROI are counted.
+Before counting of ACT bubbles is conducted, an region-of-interest (ROI) is defined. The ROI is drawn to include most of the tumor, while avoiding skin and other healthy tissue. Only ACT bubbles within the ROI are counted.
 
 The counting of ACT\texttrademark bubbles are based on a temporal coherence filter to distinguish between stuck and free-flowing bubbles. A correlation matrix $d$ of two consecutive images ,$A$ and $B$, is defined as
 \begin{equation}
@@ -143,14 +144,20 @@ d_{ij} = 1-\frac{\abs(A_{ij}-B_{ij})}{A_{ij}+B_{ij}} \forall i,j .
 
 A running average over correlation matrix for the last 40 frames is performed and indexes where the running average exceeds a temporal coherence threshold, $d_{min}$ are considered stuck bubbles. The temporal coherence threshold is set to 0.85. This value is determined through a heuristic approach where the temporal coherence of manually identified bubbles are considered. A minimum intensity threshold is set to avoid counting of low-intensity noise. The minimum intensity threshold is set to 1000. It is important to emphasize that this algorithm counts the number of ACT bubbles present, and not the total number of bubbles activated within the tumor after administration.  
 
+\subsection{Counting real data}
+For 16 animals, 125 data sets are processed, i.e. motion correction, background subtraction and automatic counting is performed. For each animal one of the data sets image administration of ACT\texttrademark bubbles. For these 16 movies, stuck phase-shift bubbles have been counted manually\cite{Healey2014}. The results from manual and automatic counting are compared.
+
+\subsubsection{Choosing representative number} 
+For each video counted a number is chosen to represent the counted number of bubbles in that animal. The number is chosen as the largest number counted, during the sequence, excluding the first 20 frames. The first frames are excluded because they are largely affected by the last frames in the previous movie. The largest number is chosen because it is closest to, and less or equal to, the actual number accumulated throughout that sequence. 
+
 \subsection{Qualitative validation}
 \label{sec:qualitative}
 A qualitative validation of the counting algorithm was performed using the following approach. The counted video sequences was evaluated with the following prejudices. In video sequences with only Sonazoid\texttrademark bubbles, no phase-shift bubbles should be counted. After the administration of ACT the phase-shift bubbles should stick, and stay for up to five minutes before decaying and disappearing. After the burst of high-frequency ultrasound, all Sonazoid\texttrademark bubbles should be destroyed, but none of the phase-shift bubble, i.e. the bubble count should not be affected by the high-frequency ultrasound. The qualitative prejudices used to distinguish Sonazoid\texttrademark and phase-shift bubbles are stated in Table \ref{tab:qualitative}
 
 
 \begin{table}[H]
-\label{tab:qualitative}
 \caption{Prejudices used to distinguish Sonazoid\texttrademark and phase-shift bubbles.}
+\label{tab:qualitative}
 \begin{center}
 \begin{tabular}{@{}l l l @{}}
   \toprule
@@ -168,40 +175,40 @@ A qualitative validation of the counting algorithm was performed using the follo
 
 \subsection{Quantitative validation}
 \subsubsection{Synthesized data set}
-A quantitative validation of the algorithm has been carried through by counting a synthesized data set with a known number density of activated phase-shift bubbles. Three different videos of administration of Sonazoid\texttrademark microbubbles were used as a background, and artificial phase-shift bubbles were added to create a data set with a known number density phase-shift bubbles. The number density ranged from \SIrange[per-mode=symbol]{0}{15}{\#\per\milli\meter\squared}. The background images were acquired using linear contrast mode.
+A quantitative validation of the algorithm has been carried through by counting a synthesized data set with a known number density of activated phase-shift bubbles. Three different videos of administration of Sonazoid\texttrademark microbubbles were used as a background, and artificial phase-shift bubbles were added to create a data set with a known number density phase-shift bubbles. The number density ranged from \SIrange[per-mode=symbol]{0}{15}{\#\per\milli\meter\squared}. For each background, 27 data sets with increasing number density was constructed. The background images were acquired using linear contrast mode.
 
-
-The algorithm for adding the phase-shift bubbles are now described. First, N random positions within the ROI is drawn from a uniform distribution. Then N intensities are drawn from a Gamma distribution (see Section \ref{PS intensity distribution}), and N frame numbers are drawn from a Poisson distribution to determine when the bubbles enter the tumor. N bubbles are then generated by applying the PSF to the drawn intensities. For each bubble the maximum intensity follows the slope of the bubble growth, shown in Figure \ref{fig:bubble growth}. These N bubbles are then log compressed and inserted into the video data. 
+The algorithm for adding the phase-shift bubbles are now described. First, N random positions within the ROI is drawn from a uniform distribution. Then N intensities are drawn from a Gamma distribution (see Section \ref{PS intensity distribution}), and N frame numbers are drawn from a Poisson distribution to determine when the bubbles enter the tumor. N bubbles are then generated by applying the PSF to the drawn intensities. For each bubble the maximum intensity follows the slope of the bubble growth, shown in Figure \ref{Fig:growth slope}. These N bubbles are then log compressed and inserted into the video data. 
 
 
 \begin{figure}[h]
   \centering
-  \label{Fig:growth slope}
-  \includegraphics[width=0.8\linewidth]{fit of bubble growth.jpg}
+  \includegraphics[width=\linewidth]{fit of bubble growth.jpg}
   \caption{A growth slope is fit to data from an identified bubble in a true dataset.}
+  \label{Fig:growth slope}
 \end{figure}
 
 %To get an unmasked estimation, we want to apply the validation directly onto the RF-data. Therefore, the transformation matrix from the image registration should be stored and applied to RF-data. Define a region of interest by drawing the boundary of the tumor. Then two uniformly distributed numbers should be drawn, to choose a random position within the ROI. Then draw an ???Intensity from intensity distribution??? and multiply with the point spread function. Add the bubble, and repeat the process until N bubbles have been applied. Apply the same bubbles to every RF-frame, and then run the bubble counting and compare with the number of bubbles applied. N should be $\#/area$, i.e. the density if bubbles, and there should be a varying density to investigate how the counting perform with increasing number of bubbles.
 
 \subsubsection{Phase-shift bubbles intensity distribution}
 \label{PS intensity distribution}
-A heuristic approach was used to estimate the intensity distribution for the activated phase-shift bubbles. For a set containing 63 identified phase-shift bubbles the maximum intensity was plotted for each frame, see Figure \ref{Fig:bubble_tic}. For each bubble the overall maximum value was used in a set, from which a gamma distribution was estimated, see Figure \ref{Fig:gamma_fit}.
+A heuristic approach was used to estimate the intensity distribution for the activated phase-shift bubbles. For a set containing 63 identified phase-shift bubbles the maximum intensity was plotted for each frame, see Figure \ref{Fig:bubble_tic}. For each bubble the overall maximum value was used in a set, from which a gamma distribution was estimated, see Figure \ref{Fig:gamma_fit}. A theoretical approach is possible, however this requires several assumptions regarding size and activation distribution of emulsion droplets and size of activated phase-shift bubbles.  The heuristic approach was therefore assumed to provide better results, and were chosen in favour. 
+
 
 \begin{figure}[h]
   \centering
-  \label{Fig:bubble_tic}
-  \includegraphics[width=0.8\linewidth]{bubble_tic.jpg}
+  \includegraphics[width=\linewidth]{bubble_tic.jpg}
   \caption{Time-intensity curves for a set of phase-shift bubbles.}
+  \label{Fig:bubble_tic}
 \end{figure}
 \begin{figure}[h]
   \centering
-  \label{Fig:gamma_fit}
-  \includegraphics[width=0.8\linewidth]{gamma_fit.jpg}
+  \includegraphics[width=\linewidth]{gamma_fit.jpg}
   \caption{Fit of a Gamma distribution to the distribution of maximum phase-shift bubble intensities.}
+  \label{Fig:gamma_fit}
 \end{figure}
 
 \subsubsection{Measuring the point spread function}
-The point spread function was measured from two different images, image a low solution of Sonazoid\texttrademark microbubbles in water and image of contamination in tap water. The size of the imaged microbubbles are smaller than the resolution of the imaging system, so the the bubbles seen in the image is effectively the point spread function(PSF). A two dimensional, normalized Gaussian function were fit to a single, easily identifiable bubble. 
+The point spread function was measured from two different images, image a low solution of Sonazoid\texttrademark microbubbles in water and image of contamination in tap water. The size of the imaged microbubbles are smaller than the resolution of the imaging system, so the the bubbles seen in the image is effectively the point spread function (PSF). A two dimensional, normalized Gaussian function were fit to a single, strong and easily identifiable bubble. 
 
  
 \subsubsection{Measuring the scan plane height}
@@ -213,13 +220,7 @@ The height of the ultrasound scan plan is necessary for the estimate of the numb
   \caption{Measurement of transducer scan plane height}
 \end{figure}
 
-\subsubsection{Choosing representative number}
 
 
-\subsection{Counting 16 animals}
-For 16 of 40 animals, stuck phase-shift bubbles have been counted manually\cite{Healey2014}. The same image sequences have been counted automatically and results are compared. It is only the videos showing ACT\textregistered administration that are compared.
-
-\subsubsection{Choosing representative number} 
-For each video counted a number is chosen to represent the counted number of bubbles in that animal. The number is chosen as the largest number counted, during the sequence, excluding the first frames. The first frames are exclude because they are affected by the last frames in the previous movie. The largest number is chosen because it has to be closest to actual number accumulated throughout that sequence.
 
 
