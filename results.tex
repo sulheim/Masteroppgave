@@ -1,25 +1,25 @@
 %Results
 \section{Results}
-This chapter is divided in three parts. The first part deal with qualitative results. This include response to high power ultrasound, intensity growth curves, and phase-shift bubble behaviour. The second part provides a quantitative validation of the counting algorithm. This validation is based on the randomly synthesized data set. The last part present the results from processing and counting of the real data set. 
+This chapter is divided in three parts. The first part deals with the qualitative results. This includes response to high power ultrasound, intensity growth curves, and phase-shift bubble behaviour. The second part provides a quantitative validation of the counting algorithm. This validation is based upon the randomly synthesized data set. The last part presents the results from the processing and counting of the real data set. 
  
 \subsection{Qualitative results}
 This section provides qualitative results, following the prejudices stated in Section \ref{sec:qualitative}.
 \subsubsection{Effect of high power ultrasound}
 
-Counted number of bubbles before and after 2 high ultrasound bursts in non-linear and linear imaging mode were available for 8 and 13 animals, respectively. Relative change after two flash pulses is shown in Figure \ref{High power US non-lin} and \ref{High power US non-lin}. Note that the high power US burst are extended (\SI{\sim 2}{\second}) in non-linear mode, while they are extremely short in linear mode (less than \SI{0.1}{\second}). Single bubble intensity curves subject to two short flashes in linear imaging mode are shown in Figure \ref{Fig:high_power_US}. 
+The counted number of bubbles before and after two high ultrasound bursts in non-linear and linear imaging mode were available for 8 and 13 animals, respectively. Relative change after two flash pulses is shown in Figure \ref{High power US non-lin} and \ref{High power US lin}. Note that the high power ultrasound burst are extended (\SI{\sim 2}{\second}) in non-linear mode, while they are extremely short in linear mode (less than \SI{0.1}{\second}). Single bubble intensity curves subject to two short flashes in linear imaging mode are shown in Figure \ref{Fig:high_power_US}. 
 %Sett inn bilde av aktiverte boble fra flash
 \begin{figure}
 \centering
 \begin{minipage}[t]{.45\textwidth}
 \centering
 \includegraphics[width=.8\textwidth,height=4cm]{relative change after high power US non linear.png}
-\caption{Relative change in counted density before and after two high power US flashes in non-linear imaging mode.}
+\caption{Relative change in the counted density before and after two high power ultrasound bursts in non-linear imaging mode. Note that 0\% indicates no change.}
 \label{High power US non-lin}
 \end{minipage}\hfill
 \begin{minipage}[t]{.45\textwidth}
 \centering
 \includegraphics[width=.8\textwidth,height=4cm]{relative change after high power US linear.png}
-\caption{Relative change in counted density before and after two high power US flashes in linear imaging mode.}
+\caption{Relative change in counted density before and after two high power ultrasound bursts in linear imaging mode. Note that 0\% indicates no change.}
 \label{High power US lin}
 \end{minipage}
 \end{figure}
@@ -27,7 +27,7 @@ Counted number of bubbles before and after 2 high ultrasound bursts in non-linea
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{time_intensity_high_powerUS.png}
-  \caption{Time intensity curves for a few bubbles subject to a short high power US flash in linear imaging mode. The two US flashes are marked, and activation of some bubbles is seen immediately.}
+  \caption{Time intensity curves for a few bubbles subject to a short high power ultrasound burs in linear imaging mode. The two bursts are marked, and some bubble are immediately activated.}
   \label{Fig:high_power_US}
 \end{figure}
  
@@ -36,54 +36,54 @@ Counted number of bubbles before and after 2 high ultrasound bursts in non-linea
 %\subsection{bubble zoom}
 
 \subsubsection{Kinetics}
-Bubble kinetics are shown in Figure \ref{Fig:bubble_kinetic}. A specific event where a phase-shift bubble is released from its current location, and relocated is marked in image with a yellow circle, and occurs 36 seconds into the corresponding video.
+Bubble kinetics are shown in Figure \ref{Fig:bubble_kinetic}. A specific event occur in the location marked by the yellow circle 36 seconds into the corresponding video. A phase-shift bubble is released from its current location and relocated. 
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{bubble_kinetics_scr.png}
-  \cprotect\caption{Corresponding video shows a stuck phase-shift bubble release from current location, travel a short distance and fasten in another location. The area is marked with yellow and the specific event occur at 36 seconds. Corresponding video is located at DIR! \verb|2014-05-01-11-23-04_count_and_color_1_to_1000dilate_1_intensity_1000ct_0.85running_avg.avi|}
+  \cprotect\caption{Corresponding video shows a stuck phase-shift bubble release from current location, travel a short distance and fasten in another location. The area is marked with yellow and the specific event occur at 36 seconds. Corresponding video is located at \path{F:\usb\avi\2014-05-01-11-23-04_count_and_color_1_to_1000dilate_1_intensity_1000ct_0.85running_avg.avi}}
   \label{Fig:bubble_kinetic}
 \end{figure}
 
-The phase-shift bubble dynamics are also visible in \ref{bubble_zoom}, where we see inflow and activation of a single phase-shift bubble.
+The phase-shift bubble dynamics are also visible in Figure \ref{bubble_zoom} and \ref{bubble_zoom_tic}, where we see inflow and activation of a single phase-shift bubble.
 
 \begin{figure}
 	\centering
 	\begin{minipage}[t]{.45\textwidth}
 		\centering
-		\includegraphics[width=.8\textwidth,height=4cm]{relative change after high power US non linear.png}
-		\caption{a}
+		\includegraphics[width=.8\textwidth,height=4cm]{bubble_zoom.png}
+		\cprotect\caption{Inflow and activation of a single phase-shift bubble is visible in the corresponding movie \path{F:\usb\avi\bubble_zoom_b4_10_28_44.avi}.}
+		\label{bubble_zoom}
 	\end{minipage}\hfill
 	\begin{minipage}[t]{.45\textwidth}
 		\centering
-		\includegraphics[width=.8\textwidth,height=4cm]{relative change after high power US linear.png}
-		\caption{(b)}
+		\includegraphics[width=.8\textwidth,height=4cm]{bubble_zoom_tic_4_10_28_44.png}
+		\caption{The corresponding time intensity curve for the phase-shift bubble to the left.}
+		\label{bubble_zoom_tic}
 	\end{minipage}
-	 \cprotect\caption{A inflow and activation of a single phase-shift bubble is seen in (a) and the corresponding movie DIR!\verb|bubble_zoom_b4_10_28_44.avi|. The corresponding time intensity curve is shown in to the right.}
-	\label{bubble_zoom}
 \end{figure}
 
 \clearpage
 \subsection{Counting of synthesized data}
-The synthesized data is based on three different background movies. Results and non-linear regression is shown for each individual background in Figure \ref{Fig:counted_vs_inserted1}, \ref{Fig:counted_vs_inserted2} and \ref{Fig:counted_vs_inserted3}. The entire set, composed of all data from the three background, is presented in Figure \ref{Fig:counted_vs_inserted_all} and \ref{Fig:counted_vs_inserted_all_small}.
+The synthesized data is based on three different background videos. The three data sets and respective non-linear best fit are found in Figure \ref{close comoarison}. The data is log-transformed and fitted to a third degree polynomial. The curve fitting is performed on the log-transformed data because of the multiplicative nature of speckle noise. A logarithmic transformation converts multiplication to addition. The entire set, composed of all data from the three backgrounds, is presented in Figure \ref{Fig:counted_vs_inserted_all} and \ref{Fig:counted_vs_inserted_all_small}.
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{2014-05-02-09-51-16counted_vs_inserted.png}
-  \caption{Non-linear regression on the first synthesized data set, file reference 2014-05-02-09-51-16.}
-  \label{Fig:counted_vs_inserted1}
+  \includegraphics[width=\linewidth]{close_comparison.png}
+  \cprotect\caption{The three different data sets. The log-transformed data is fitted to a third degree polynomial. The corresponding background videos are found in the following directories. Background 1: \path{F:\usb\avi\2014-05-01-10-00-05_PS_counted_0.avi}. Background 2: \path{F:\usb\avi\2014-05-01-11-44-15_PS_counted_0.avi}. Background 3: \path{F:\usb\avi\2014-05-02-09-51-16_PS_counted_0.avi}.}
+  \label{Fig:close comparison}
 \end{figure}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{2014-05-01-11-44-15counted_vs_inserted.png}
-  \caption{Non-linear regression on the first synthesized data set, file reference 2014-05-01-11-44-15.}
-  \label{Fig:counted_vs_inserted2}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{2014-05-01-10-00-05counted_vs_inserted.png}
-  \caption{Non-linear regression on the first synthesized data set, file reference 2014-05-01-10-00-05.}
-  \label{Fig:counted_vs_inserted3}
-\end{figure}
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=\linewidth]{2014-05-01-11-44-15counted_vs_inserted.png}
+%  \caption{Non-linear regression on the first synthesized data set, file reference 2014-05-01-11-44-15.}
+%  \label{Fig:counted_vs_inserted2}
+%\end{figure}
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=\linewidth]{2014-05-01-10-00-05counted_vs_inserted.png}
+%  \caption{Non-linear regression on the first synthesized data set, file reference 2014-05-01-10-00-05.}
+%  \label{Fig:counted_vs_inserted3}
+%\end{figure}
 
 \begin{figure}[h]
   \centering
@@ -96,62 +96,71 @@ The synthesized data is based on three different background movies. Results and 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{counted_vs_inserted_small.png}
-  \caption{Plot and non-linear fit of the counted number density as a function of inserted density. Same plot as in Figure \ref{Fig:counted_vs_inserted_all}, but zoomed onto the range from 0 to 4 bubbles per square millimeter.}
+  \caption{Plot and non-linear fit of the counted number density as a function of inserted density. Same plot as in Figure \ref{Fig:counted_vs_inserted_all}, but zoomed onto the range from 0 to 4 bubbles per square millimetre.}
   \label{Fig:counted_vs_inserted_all_small}
 \end{figure}
 
-If we swap the axes, we can plot the actual number density as a function of counted number density. We only consider the near-linear range, see Figure \ref{Fig:counted_vs_inserted_inverse}. 
+If we swap the axes, we can plot the actual number density as a function of the counted number density. If we only consider the near-linear range, we can fit a linear curve to the log-transformed data (Figure \ref{Fig:counted_vs_inserted_inverse}). The spread of the counted number density has been evaluated (Figure \ref{Fig:rsd}). The average relative standard deviation is 0.016.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{counted_vs_inserted_small_inverse.png}
-  \caption{Plot and linear fit of actual number density as a function of counted density.}
+  \caption{Plot and linear fit of real number density as a function of counted density.}
   \label{Fig:counted_vs_inserted_inverse}
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{rsd_inserted.png}
+	\caption{Relative standard deviation as a function of inserted number density of phase-shift bubbles. Linear fit to log-transformed data. The mean relative standard deviation is 0.016.}
+	\label{Fig:rsd}
+\end{figure}
+
+
 \subsection{Counting of real data}
-Bubbles for the 16 animals is presented together with the manually counted result in Figure \ref{Fig:Number of counted bubbles} and \ref{Fig:Number density of counted bubbles}. The bubble count representing each animal is the highest, count during the video of administration of compound. A full list of counted bubbles, and frame number for counting is presented in Appendix (EXCEL ark). Counting of administration of ACT\texttrademark is seen in Figure \ref{Fig:counting_administration}. All contrast agent is colored in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.
+Counted number density for the 16 animals are presented together with the manually counted results (Figure \ref{Fig:Number of counted bubbles} and \ref{Fig:Number density of counted bubbles}). The bubble count representing each animal is the maximum count during the video of ACT\texttrademark{} injection. Results for all 125 video sequences are found in Appendix (EXCEL ark). Image of counting during ACT\texttrademark{} administration is found in Figure \ref{Fig:counting_administration}. The contrast agent is coloured in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{counting_scrshot_10_40_23.png}
-  \cprotect\caption{Counting during administration of ACT\texttrademark. The corresponding video is found at DIR!\verb|2014-05-02-10-40-23_count_and_color_1_to_1000dilate_1_intensity_1000ct_0.85running_avg.avi|. All contrast agent is colored in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.}
+  \cprotect\caption{Counting during administration of ACT\texttrademark{}. The corresponding video is found at \path{F:\usb\avi\2014-05-02-10-40-23_count_and_color_1_to_1000dilate_1_intensity_1000ct_0.85running_avg.avi}. All contrast agent is coloured in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.}
   \label{Fig:counting_administration}
 \end{figure}
 
-There may be small differences between the ROI used for the automatic and manually counted data. This affect the number of counted bubbles, N.
+There may be small differences between the ROI used for the automatic and manually counted data. This affects the number of counted bubbles, N.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{manual_vs_auto_count.png}
-  \caption{Number of counted bubbles of the 16 mice. Note that there may be differences in the ROI used for the manual(blue) and automatic(red) counting.}
+  \caption{Number of counted bubbles in the 16 mice. Note that there may be differences in the ROI used for the manual(blue) and automatic(red) counting.}
   \label{Fig:Number of counted bubbles}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{manual_vs_auto_count_density.png}
-  \caption{Number density of counted, stuck phase-shift bubbles of the 16 mice. Automatic counting is shown in red, while manual counting in blue.}
+  \caption{Number density of counted, stuck phase-shift bubbles in the 16 mice. Automatic counting is shown in red, while manual counting is shown in blue.}
   \label{Fig:Number density of counted bubbles}
 \end{figure}
 
-For all 16 animals, time-intensity curves showing the integrated intensity within the ROI as a function of time is plotted. The count number density is also plotted with respect to time. For  one animal, this is presented in Figure \ref{Fig:tic} and \ref{Fig:tic_count}. For all animals, this is found in Appendix?????.
+For all 16 animals, time-intensity curves showing the integrated intensity within the ROI as a function of time is plotted. The count number density is also plotted with respect to time. For one animal, this is presented in Figure \ref{Fig:tic} and \ref{Fig:tic_count}. Similar results for all animals are found in Appendix?????.
 
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{tic_2.jpg}
-  \caption{Time-intensity curve for animal nr. 2.These numbers represent both non-linear(red) and linear(black) contrast imaging.}
+  \includegraphics[width=\linewidth]{tic_10.jpg}
+  \caption{Time-intensity curve in animal nr. 10. These numbers represent both non-linear(red) and linear(black) contrast imaging.}
   \label{Fig:tic}
 \end{figure}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{bubble_count2.jpg}
-  \caption{Number density as a function of time for animal nr. 2. These numbers represent both non-linear(red) and linear(black) contrast imaging.}
+  \includegraphics[width=\linewidth]{bubble_count5.jpg}
+  \caption{Number density as a function of time in animal nr. 5. These numbers represent both non-linear(red) and linear(black) contrast imaging.}
   \label{Fig:tic_count}
 \end{figure}
 
+\clearpage
 %Table with andys count vs my count
 
 

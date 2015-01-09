@@ -1,0 +1,58 @@
+\section{Matlab files}
+\begin{table}[htbp]
+	\caption{List of Matlab files.}
+	\begin{center}
+		\begin{tabular}{l l l p{5cm} }
+			\hline
+			Name & Input & Output & Function \\ \hline
+			\textbf{align\_image.m} & fixed image, moving image, transformation type,  max iterations, intital transform, max step length) &  & Align the moving image to the fixed image using MATLAB functions imregtform and imwarp. \\ \hline
+			\textbf{batch\_process.m} &  &  & This script perform batch processing of the rf-data specified in counting sheet.xlsx. For all filenames, the function run\_program is launched. \\ \hline
+			bubble\_count\_curve.m &  & .mat files & Produce .mat files containing data later used for plotting of Number density as a function of time  \\ \hline
+			bubble\_density.m & Number of bubbles, region of interest, Bmode parameters & number density & Compute number density from a given number of bubbles and a ROI. \\ \hline
+			bubble\_growth.m &  &  & Estimate bubble growth curve from existing single bubble tic curve \\ \hline
+			bubble\_tic.m &  & .mat files & Produce .mat files with data later used to plot tic-curves \\ \hline
+			bubble\_zoom.m & frames, chosen pixels, show images(true/false) & maximum intensity & Zoom in on a region defined by the chosen pixels, and produce a smoothed close up video of these pixels. \\ \hline
+			\textbf{color\_code.m} & frame, contrast mask & RGB image & Color the contrast green in the .avi files. \\ \hline
+			compare\_manual\_and\_auto\_count.m &  & Figures & Make histograms comparing manually and automatically counted data. \\ \hline
+			count\_max\_real\_data.m &  & .txt file & Count the maximum counted number of phase-shift bubble for each video, and store in .txt file. \\ \hline
+			\textbf{count\_PS\_bubbles.m} & motion corrected filename, subtracted filename & .avi file and .mat file & Count the number of phase-shift bubbles and make the final .avi file. \\ \hline
+			\textbf{do\_subtraction.m} & frames & subtracted frames and background frame & Compute background and subtract the backgrounf from all frames. \\ \hline
+			draw\_roi.m & frame & ROI & Allow the user to draw a ROI on a frame. \\ \hline
+			evalc2decimal.m & string & decimal number & Convert a string to a decimal number \\ \hline
+			frame\_counter.m & Full file name of raw US data & Total number of frames in file & Count the number ov video frames in a raw file (.rf/.iq) \\ \hline
+			\textbf{get\_background.m} & Frames & background & Compute background by maximum projection of the given frames \\ \hline
+			get\_correlation.m & frame A, frame B, & correlation & Compute correlation between two frames \\ \hline
+			get\_growth\_intensity.m & max intensity, start frame, length & intensity array & Multiply the intensity obtained with growth\_fun.m to obtain correct intensity function \\ \hline
+			get\_param.m & file name raw US data & image parameter & Obtain image parameters \\ \hline
+			\textbf{get\_RF\_from\_IQ.m} & Full file name of raw US data, frame number & RF data, parameters & Obtain RF-data from IQ data.  \\ \hline
+			get\_tic.m & file\_reference, t & intensity array & Compute time intensity curve for a file given by the file reference.  t(seconds) is a time array.  \\ \hline
+			growth\_fun.m & frame numbers & growth function & Calculate the bubble growth function for the given frame numbers \\ \hline
+			hms2sec.m & d1,h1, m1, s1, d2, h2, m2, s2 & seconds & Compute seconds elapsed between two timestamps.  \\ \hline
+			im\_sub.m & frame A, frame B, type & Difference frame & Subtract frame B from A, and set all values less than zero equal to zero. \\ \hline
+			insert\_bubble.m & Intensity, x-position, y-position, frame & frame with bubble & Insert a synthesized bubble at a given position and and intensity given in the given frame \\ \hline
+			investigate\_pixels.m &  & Figures & Plot the intensity as a function of frame for a given pixel. \\ \hline
+			log\_compress\_2.m & array, 'compress/decompress' & array & Approximation to log-compression(envelope) in log\_compress.m Can compress or decompress. \\ \hline
+			log\_compress.m & RF-data & compressed data & Perform hilbert transform and log  compression on RF- data \\ \hline
+			make\_intensity\_distribution.m &  & probability object & Compute probability density function for the intensity distribution. \\ \hline
+			make\_ref\_frame.m & Full filename, frame indexes, extension(rf/iq) & reference frame and parameters & Make reference frame for motion correction. \\ \hline
+			mat2avi.m & filename & .avi file & Contruct .avi file from .mat file \\ \hline
+			\textbf{motion\_correction.m} & Filename(mat file) & motion corrected .mat file & Compute motion corrected .mat file from a .mat file \\ \hline
+			mse.m & frame A, frame B & Mean square error & Compute mean square error between two frames. \\ \hline
+			plot\_bubble\_count\_curve.m &  & Figures & Plot bubble count curves from .mat files produced with bubble\_count\_curve.m \\ \hline
+			plot\_bubble\_tic.m &  & Figures & Plot tic curves from the .mat files produced with bubble\_tic.m \\ \hline
+			plot\_tic\_curves.m & Counted .mat file name, subtracted .mat file name & time array, intensity curves & Calculate intensity curves for single bubbles and show close-up video of bubbles. \\ \hline
+			point\_spread\_fun.m &  &  & Calculate the PSF from an identified bubble. \\ \hline
+			progressbar.m & ratio & Figure & Show progress bar.  Public available script. \\ \hline
+			psf.m &  &  & return the PSF \\ \hline
+			random\_intensity.m & intensity distribution & intensity & Draw a random intensity from the intensity distribution. \\ \hline
+			random\_position.m & Roi, N & x and y coordinate & Draw N random positions within ROI. \\ \hline
+			ReadRF.m & full filename, mode name, and frame number & RF data, parameters & Read in RF data. Written by A.Healey. \\ \hline
+			\textbf{RF2mat.m} & Full filename & .mat file & Convert raw US data to .mat file. \\ \hline
+			\textbf{run\_program.m} & Filename raw US data, background frame index, count(true/false), bg\_subtraction(true/false),  background file name, correlation array file name. & .avi file and . Mat file & Perform all processing from raw US data to counted .avi file and .mat file. If count or background\_subtraction is false, the program will not perform these tasks. Background file name must be included if the background is supposed to be made from another file. Correlation array file name is the name of the previous video sequence. \\ \hline
+			\textbf{subtraction\_fun.m} & filename notion corrected .mat file, indexes for background & .mat file(subtracted data) & Create background file, and subtract the background from all frames. Save subtracted frames as .mat file \\ \hline
+			time\_array\_from\_time\_stamps.m & time\_stamp1, time\_stamp 2. & time array(seconds) & Make time array from two time stamps \\ \hline
+			VsiBModeIQ.m & full filename, mode name, and frame number & IQ data and parameters & Compute IQ data from RF-data. Written by A. Needles, J. Mehi. Copyright VisualSonics 1999-2010 \\ \hline
+			\end{tabular}
+			\end{center}
+			\label{Matlab files}
+			\end{table}

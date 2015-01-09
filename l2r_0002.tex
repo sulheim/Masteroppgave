@@ -1,0 +1,63 @@
+\documentclass[b5paper, twoside, titlepage, 10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage[english]{babel}
+\usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}                
+\usepackage{amsmath,amsfonts,amssymb} \usepackage{graphicx}                 \graphicspath{{figurer/}}
+\usepackage{subcaption}                                                         \usepackage[space]{grffile}
+\usepackage{siunitx}
+\sisetup{range-units = single}
+\usepackage{fancyvrb}
+\sisetup{separate-uncertainty}\DeclareMathOperator{\sgn}{sgn}
+\usepackage{morefloats}
+\usepackage[numbers]{natbib}
+\usepackage[titletoc,toc,title]{appendix}
+
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{units}\usepackage{textcomp}\usepackage{commath}\usepackage{booktabs}
+\usepackage{cprotect}
+\usepackage{placeins}
+\renewcommand{\arraystretch}{1.2} 
+
+\usepackage{listings}                 \usepackage[hyphens, obeyspaces]{url}
+\Urlmuskip=0mu plus 1mu
+
+
+                                                                                                             
+
+
+\thispagestyle{empty}
+\begin{document}
+\setcounter{equation}{41}
+\begin{tabular}{@{}l l l @{}}
+\toprule
+& \multicolumn{2}{c}{Value} \\ \cmidrule(r){2-3}
+Parameter & Linear contrast mode & Non-linear contrast mode\\
+\midrule
+Application & Cardiac & Cardiac\\
+Preset & Contrast & Cardiac\\
+Transmit:\\
+Frequency & \SI{16}{\mega\hertz} & \SI{18}{\mega\hertz}\\
+Power & 3\% & 10\%\\
+Gate & & 6\\
+Beamwidth & & Standard
+Acquisition:\\
+Gain & 10 dB & 10 dB\\
+2D Gain & & 10 dB\\  
+Frame rate & 10 fps & 10 fps\\
+Depth & \SI{21.00}{\milli\meter} & \SI{21.00}{\milli\meter}\\
+Width & \SI{23.04}{\milli\meter} & \SI{23.04}{\milli\meter}\\
+Sensitivity & &1\\
+Line density & Standard & High \\ 
+Persistence & None & Off \\
+Display:\\
+Dynamic range &45 dB &40 dB \\
+Display Map & MB1 & MB2\\
+Brightness & 50 & 50\\
+Contrast & 50 & 50 \\
+  \bottomrule
+\end{tabular}
+\end{document}

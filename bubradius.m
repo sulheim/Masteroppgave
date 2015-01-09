@@ -1,0 +1,14 @@
+function Rb = bubradius(dropdiameter,GP);
+mass_density = 1.7e6; % g m-3 for pf-DMCP
+Na = 6.0221413e23; % Avagadros number
+kb = 1.3806488e-23;% m2 kg s-2 K-1 Bolzmanns constant
+Temp = 310; % K - normal body temperature
+pfvolume = 4./3.*pi.*(dropdiameter./2).^3;
+mwpf = 300.05;
+Pd = 101000-GP;
+tor = 0.07;
+C = pfvolume.*mass_density.*Na.*kb.*Temp.*6./mwpf./pi;
+Del0 = 16*tor^2;
+Del1 = 128*tor.^3-27*Pd.^2.*C;
+c = ((Del1 + sqrt(Del1.^2-4*Del0.^3))/2).^(1/3);
+Rb = real(-1/3./Pd.*(4*tor+(-1+i*3^(1/2))*c./2+2*Del0./c./(-1+i*3^(1./2))))./2;

@@ -1,0 +1,49 @@
+\documentclass[b5paper, twoside, titlepage, 10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage[english]{babel}
+\usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}                
+\usepackage{amsmath,amsfonts,amssymb} \usepackage{graphicx}                 \graphicspath{{figurer/}}
+\usepackage{subcaption}                                                         \usepackage[space]{grffile}
+\usepackage{siunitx}
+\sisetup{range-units = single}
+\usepackage{fancyvrb}
+\sisetup{separate-uncertainty}\DeclareMathOperator{\sgn}{sgn}
+\usepackage{morefloats}
+\usepackage[numbers]{natbib}
+\usepackage[titletoc,toc,title]{appendix}
+
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{units}\usepackage{textcomp}\usepackage{commath}\usepackage{booktabs}
+\usepackage{cprotect}
+\usepackage{placeins}
+\renewcommand{\arraystretch}{1.2} 
+
+\usepackage{listings}                 \usepackage[hyphens, obeyspaces]{url}
+\Urlmuskip=0mu plus 1mu
+
+
+                                                                                                             
+
+
+\thispagestyle{empty}
+\begin{document}
+\setcounter{equation}{41}
+\begin{tabular}{@{}l l l @{}}
+\toprule
+& \multicolumn{2}{c}{Value} \\ \cmidrule(r){2-3}
+Parameter & V-scan & Vivid E9\\
+\midrule
+Preset & Cardiac & \\
+Frequency & & \SI{2}{\mega\hertz}\\
+Image distance & \SI{8}{\centi\meter} & \SI{2}{\centi\meter}\\
+Focus depth & \SI{5}{\centi\meter} & \SI{1.5}{\centi\meter}\\
+Frames per second & &Maximum\\
+Angle & & \ang{45}\\
+Mechanical index (MI) & \num{0.8} & \num{0.28} \\
+  \bottomrule
+\end{tabular}
+\end{document}

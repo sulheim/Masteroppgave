@@ -1,14 +1,15 @@
 % Først spesifiserer vi hvilken dokumentklasse vi vil ha og noen 
 % globale opsjoner. Bytt ut 'article' med 'book' hvis du vil ha med kapitler.
-\documentclass[a4paper, twoside, titlepage, 12pt]{article}
+\documentclass[b5paper, twoside, titlepage, 10pt]{article}
 
 % Så sier vi fra om hvilke tilleggspakker vi trenger
 % til dokumentet vårt. De som du ikke trenger (se kommentaren) 
 % kan det være en fordel å kommentere ut (sett prose
 %%%%REGEX FINN litenbokstav etter punktum : \.\s[:lower:]
+\usepackage[T1]{fontenc}
 \usepackage{cite}
 \usepackage[english]{babel}
-\usepackage{geometry}                
+\usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}                
 \usepackage{amsmath,amsfonts,amssymb} % matematikksymboler
 %\usepackage{amsthm}                   % for å lage teoremer og lignende.
 \usepackage{graphicx}                 % inkludering av grafikk
@@ -23,9 +24,10 @@
 \DeclareMathOperator{\sgn}{sgn}
 \usepackage{morefloats}
 \usepackage[numbers]{natbib}
+\usepackage[titletoc,toc,title]{appendix}
 %\usepackage{underscore}
 
-
+\usepackage{longtable}
 \usepackage{multirow}
 \usepackage{mathtools}
 \usepackage{units}%for nicefrac
@@ -33,12 +35,16 @@
 \usepackage{commath}%for derivatives
 \usepackage{booktabs}
 \usepackage{cprotect}
+\usepackage{placeins}
 \renewcommand{\arraystretch}{1.2} 
 %
 %\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
 
 \usepackage{listings}                 % Fin for inkludering av kildekode
+\usepackage[hyphens, obeyspaces]{url}
+\Urlmuskip=0mu plus 1mu
+
 
 %\usepackage{hyperref}                % Lager hyperlinker i evt. pdf-dokument
                                       % men har noen bugs, så den er kommentert
@@ -61,6 +67,8 @@
 
 % Inkluder forsida:
 \include{forside}
+\include{abstract}
+\include{sammendrag}
 
 % Romerske tall på alt før selve rapporten starter er pent.
 \pagenumbering{roman}
@@ -101,7 +109,11 @@
 % En latex-kommando for å si fra at kapitlene/seksjonene fra nå 
 % av skal nummereres med store bokstaver:
 \appendix
-\include{Rayleigh-plesset}
+%\begin{appendices}
+\include{appendix}
+%\include{Raw counting results}
+%\include{Matlab files}
+%\end{appendices}
 
 % Indeks for rapporten. Ta bort prosenttegn hvis du vil ha det med.
 %\printindex

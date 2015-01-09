@@ -1,0 +1,51 @@
+\documentclass[b5paper, twoside, titlepage, 10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage[english]{babel}
+\usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}                
+\usepackage{amsmath,amsfonts,amssymb} \usepackage{graphicx}                 \graphicspath{{figurer/}}
+\usepackage{subcaption}                                                         \usepackage[space]{grffile}
+\usepackage{siunitx}
+\sisetup{range-units = single}
+\usepackage{fancyvrb}
+\sisetup{separate-uncertainty}\DeclareMathOperator{\sgn}{sgn}
+\usepackage{morefloats}
+\usepackage[numbers]{natbib}
+\usepackage[titletoc,toc,title]{appendix}
+
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{units}\usepackage{textcomp}\usepackage{commath}\usepackage{booktabs}
+\usepackage{cprotect}
+\usepackage{placeins}
+\renewcommand{\arraystretch}{1.2} 
+
+\usepackage{listings}                 \usepackage[hyphens, obeyspaces]{url}
+\Urlmuskip=0mu plus 1mu
+
+
+                                                                                                             
+
+
+\thispagestyle{empty}
+\begin{document}
+\setcounter{equation}{31}
+\begin{tabular}{@{} l l l @{}}
+\toprule
+   Parameter & Symbol & Value\\
+   \midrule
+   Surface tension & $\tau$ & \SI{0.04}{\newton\per\meter}\\
+   Droplet diameter & $2r$ & \SIlist{2;4}{\micro\meter}\\
+   Atmospheric pressure & $p_{atm}$ & \SI{101}{\kilo\pascal}\\
+   Partial pressure of air & $p_{air}$ & \SI{92}{\kilo\pascal}\\
+   Systemic blood pressure & $p_{blood}$ & \SI{0}{\kilo\pascal}\\
+   Ostwald coefficient air &$L_A$  & \num{1.7e-2}\\
+   Ostwald coefficient pf-MCP &$L_{pf}$ & \num{2.02e-4}\\  
+   Diffusion coefficient air & $D_A$ & \num{2.05e-9}\\
+   Diffusion coefficient pf-MCP & $D_{pf}$ &\num{6.9e-10}\\ 
+   Mole fraction of pf-MCP at $t = 0$ & $X_{pf}$ & 1 \\
+   \bottomrule
+\end{tabular}
+\end{document}
