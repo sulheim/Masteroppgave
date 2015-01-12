@@ -13,7 +13,7 @@
 \usepackage{amsmath,amsfonts,amssymb} % matematikksymboler
 %\usepackage{amsthm}                   % for å lage teoremer og lignende.
 \usepackage{graphicx}                 % inkludering av grafikk
-\graphicspath{{figurer/}}
+\graphicspath{{figurer/}{C:/Users/Snorre/Documents/masteroppgave/Masteroppgave/Phaseshiftcounting/tic/}{C:/Users/Snorre/Documents/masteroppgave/Masteroppgave/Phaseshiftcounting/bubble_count_curves/}}
 \usepackage{subcaption}                   % hvis du vil kunne ha flere
                                       % figurer inni en figur
 \usepackage[space]{grffile}
@@ -55,7 +55,7 @@
 %\usepackage{makeidx}     
 %\makeindex              
 
-%\includeonly{forside, introduction, teori, metode, results, Rayleigh-plesset}
+%\includeonly{appendix}
 % Selve dokumentet begynner:
 
 \begin{document}
@@ -67,6 +67,7 @@
 
 % Inkluder forsida:
 \include{forside}
+%\include{Preface}
 \include{abstract}
 \include{sammendrag}
 
@@ -104,14 +105,17 @@
 
 % Bibliografi/referanseliste skal komme før appendiks
 \bibliography{C:/Users/Snorre/Documents/bibtex/library}
-\bibliographystyle{plainnat}
+\bibliographystyle{unsrtnat}
 
 % En latex-kommando for å si fra at kapitlene/seksjonene fra nå 
 % av skal nummereres med store bokstaver:
 \appendix
 %\begin{appendices}
 \include{appendix}
-%\include{Raw counting results}
+\include{number_density_curves}
+\include{tic}
+\include{Raw counting results}
+\include{Matlab files}
 %\include{Matlab files}
 %\end{appendices}
 

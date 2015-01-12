@@ -65,7 +65,7 @@ The phase-shift bubble dynamics are also visible in Figure \ref{bubble_zoom} and
 
 \clearpage
 \subsection{Counting of synthesized data}
-The synthesized data is based on three different background videos. The three data sets and respective non-linear best fit are found in Figure \ref{close comoarison}. The data is log-transformed and fitted to a third degree polynomial. The curve fitting is performed on the log-transformed data because of the multiplicative nature of speckle noise. A logarithmic transformation converts multiplication to addition. The entire set, composed of all data from the three backgrounds, is presented in Figure \ref{Fig:counted_vs_inserted_all} and \ref{Fig:counted_vs_inserted_all_small}.
+The synthesized data is based on three different background videos. The three data sets and respective non-linear best fit are found in Figure \ref{close comoarison}. The data is log-transformed and fitted to a third degree polynomial. The curve fitting is performed on the log-transformed data because of the multiplicative nature of speckle noise. A logarithmic transformation converts multiplication to addition, and makes the noise almost normally distributed (Figure \ref{Fig:log_normal}). The entire set, composed of all data from the three backgrounds, is presented in Figure \ref{Fig:counted_vs_inserted_all} and \ref{Fig:counted_vs_inserted_all_small}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{close_comparison.png}
@@ -88,10 +88,16 @@ The synthesized data is based on three different background videos. The three da
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{counted_vs_inserted.png}
-  \caption{Plot and non-linear fit of the counted number density as a function of inserted density.}
+  \caption{Plot and non-linear fit of the counted number density as a function of inserted density. Note that the fit is performed on the log-transformed data. This make the residuals of the fit almost normally distributed (\ref{Fig:log_normal}).}
   \label{Fig:counted_vs_inserted_all}
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{log_normal.png}
+	\caption{The Normal probability plot for the residuals of the counted data and the fit in Figure \ref{Fig:counted_vs_inserted_all}. We see that the residuals are almost normally distributed. Remember that the fit is performed on log-transformed data.}
+	\label{Fig:log_normal}
+\end{figure}
 
 \begin{figure}[h]
   \centering
@@ -118,7 +124,7 @@ If we swap the axes, we can plot the actual number density as a function of the 
 
 
 \subsection{Counting of real data}
-Counted number density for the 16 animals are presented together with the manually counted results (Figure \ref{Fig:Number of counted bubbles} and \ref{Fig:Number density of counted bubbles}). The bubble count representing each animal is the maximum count during the video of ACT\texttrademark{} injection. Results for all 125 video sequences are found in Appendix (EXCEL ark). Image of counting during ACT\texttrademark{} administration is found in Figure \ref{Fig:counting_administration}. The contrast agent is coloured in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.
+Counted number density for the 16 animals are presented together with the manually counted results (Figure \ref{Fig:Number of counted bubbles} and \ref{Fig:Number density of counted bubbles}). The bubble count representing each animal is the maximum count during the video of ACT\texttrademark{} injection. Results for all 125 video sequences are found in Appendix (\ref{raw counting}). Image of counting during ACT\texttrademark{} administration is found in Figure \ref{Fig:counting_administration}. The contrast agent is coloured in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.
 
 \begin{figure}[h]
   \centering
@@ -143,7 +149,7 @@ There may be small differences between the ROI used for the automatic and manual
   \label{Fig:Number density of counted bubbles}
 \end{figure}
 
-For all 16 animals, time-intensity curves showing the integrated intensity within the ROI as a function of time is plotted. The count number density is also plotted with respect to time. For one animal, this is presented in Figure \ref{Fig:tic} and \ref{Fig:tic_count}. Similar results for all animals are found in Appendix?????.
+For all 16 animals, time-intensity curves showing the integrated intensity within the ROI as a function of time is plotted. The count number density is also plotted with respect to time. For one animal, this is presented in Figure \ref{Fig:tic} and \ref{Fig:tic_count}. Similar results for all animals are found in Appendix \ref{tic appendix} and \ref{App:number_density_curves}.
 
 
 \begin{figure}[h]
