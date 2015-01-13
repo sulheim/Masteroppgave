@@ -4,13 +4,20 @@
 %Instrumentation
 \section{Materials and methods}
 \subsection{Image recording}
-\subsubsection{Contrast agent}
-The Sonazoid\texttrademark{} microbubbles are shipped freeze-dried, and reconstituted with sterile water to create a solution with a gas volume content of about 1\%. They are used both as a contrast agent, and together with microdroplets to form the ACT\texttrademark{} clusters.  %Anyhting more here?
+All ultrasound images have been recorded by Annemieke van Wamel and Andrew Healey prior to this study.
+\subsubsection{The ACT\texttrademark{} clusters}
+The ACT\texttrademark{} clusters are composed of \SI{3}{\micro\liter\per\milli\liter} microdroplets (pf-MCP) and \SI{8}{\micro\litre\per\milli\litre} (\SI{1.2e8}{\per\milli\litre}) of microbubbles (HEPS-Na stabilized PFB microbubbles[Sonazoid\texttrademark{}]). Two different doses were used:
+
+\begin{enumerate}
+	\item Low dose: \SI{50}{\micro\litre} of the mixture, diluted 1:4. contains \SI{0.72}{\micro\liter\per\milli\liter} oil droplets and \SI{2}{\micro\liter\per\milli\liter} microbubbles.
+	\item High dose: \SI{50}{\micro\litre} of the mixture, neat, contains \SI{3}{\micro\liter\per\milli\liter} oil droplets and \SI{8}{\micro\liter\per\milli\liter} microbubbles.
+\end{enumerate}  
+ 
+The Sonazoid\texttrademark{} microbubbles are stored lyophilized, and reconstituted with sterile water to create a liquid solution. They are used both as a contrast agent, and as microbubbles together with microdroplets to compose the ACT\texttrademark{} clusters (Section \ref{sec:phase-shift bubbles}).  %Anyhting more here?
 
 \subsubsection{Imaging setup}
 %16Mhz
-All ultrasound images evaluated during this work are imaged with the Vevo\texttrademark{} 2100 imaging system from Visual Sonics.
-Two different imaging modes have been used, linear and non-linear contrast mode. Linear contrast mode was used to emphasize the ACT\texttrademark{} bubbles, while non-linear mode enhances the contrast from the Sonazoid\texttrademark{} microbubbles. The imaging settings are presented in Table \ref{tab:Vevo Ultrasound settings}.
+All ultrasound images evaluated during this work are imaged with the Vevo\texttrademark{} 2100 imaging system from Visual Sonics~\cite{Coulthard2009}. Two different imaging modes have been used, linear and non-linear contrast mode. Linear contrast mode was used to emphasize the ACT\texttrademark{} bubbles, while non-linear mode enhances the contrast from the Sonazoid\texttrademark{} microbubbles. The imaging settings are presented in Table \ref{tab:Vevo Ultrasound settings}.
 
 \begin{table}[htb]
 \caption{Settings used in the Vevo 2100 ultrasound apparatus.}
@@ -63,7 +70,7 @@ Image distance & \SI{8}{\centi\meter} & \SI{2}{\centi\meter}\\
 Focus depth & \SI{5}{\centi\meter} & \SI{1.5}{\centi\meter}\\
 Frames per second & &Maximum\\
 Angle & & \ang{45}\\
-Mechanical index (MI) & \num{0.8} & \num{0.28} \\
+Mechanical index (MI) & \num{0.5} & \num{0.28} \\
   \bottomrule
 \end{tabular}
 \end{center}
@@ -78,16 +85,20 @@ The mice received anesthesia before injection of ACT\texttrademark{} or Sonazoid
   \label{Fig:setup}
 \end{figure}
 
+\subsubsection{High ultrasound bursts}
+\label{sec:high US bursts}
+In some of the ultrasound recordings, high power ultrasound were applied by the Vevo 2100 transducer. This was utilized because the high power ultrasound disrupts the Sonazoid\texttrademark{} microbubbles, while the large phase-shift bubbles are unaffected. This difference is utilized to distinguish the phase-shift bubbles from the Sonazid\texttrademark microbubbles. The high power ultrasound were set to the maximum duration in linear contrast and non-linear mode. That is \({<}\SI{0.1}{\second}\) and \SI{~2}{\second}, respectively~\cite{Coulthard2009}.
 
 
 \subsubsection{Experimental protocol}
+\label{sec protocols}
 Four different combinations of ACT\texttrademark{} dose and transducer were used in this study:
 
 \begin{enumerate}
-  \item Animal 1 to 4. Vivid transducer and low dose (\SI{50}{\micro\litre}, 1:4 dilution).
-  \item Animal 5 to 8. V-scan transducer and low dose (\SI{50}{\micro\litre}, 1:4 dilution).
-  \item Animal 9 to 12. Vivid transducer and high dose(\SI{50}{\micro\litre}, neat dilution).
-  \item Animal 13 to 16. V-scan transducer and high dose(\SI{50}{\micro\litre}, neat dilution).
+  \item Animal 1 to 4. Vivid transducer and low dose.
+  \item Animal 5 to 8. V-scan transducer and low dose.
+  \item Animal 9 to 12. Vivid transducer and high dose.
+  \item Animal 13 to 16. V-scan transducer and high dose.
 \end{enumerate}
  
 Sonazoid\texttrademark{} microbubbles were also injected alone as 1:4 dilution, \SI{50}{\micro\litre}, for assessment of vascularity. All injections were administrated as bolus. The general protocol applied is given below~\cite{Healey2014}. A detailed list, including all exceptions, is found in Appendix (\ref{raw counting}).
@@ -107,8 +118,8 @@ Sonazoid\texttrademark{} microbubbles were also injected alone as 1:4 dilution, 
 		\item Post-administration images. Linear contrast mode.
 		\item Post-administration images. Non-linear contrast mode.
 		\item Post-administration images. Linear contrast mode.
-		\item Two flash pulses of high power ultrasound. Non-linear contrast mode.
-		\item Two flash pulses of high power ultrasound. Linear contrast mode.
+		\item Two bursts of high power ultrasound. Non-linear contrast mode.
+		\item Two bursts of high power ultrasound. Linear contrast mode.
 		\end{enumerate}
 	\item Imaging vasculature using Sonazoid\texttrademark{}.
 		\begin{enumerate}
@@ -142,8 +153,8 @@ d_{ij} = 1-\frac{\abs{(A_{ij}-B_{ij})}}{A_{ij}+B_{ij}}\quad \forall i,j.
 
 A running average of the correlation matrix is performed, and pixel indexes where the running average exceeds a temporal coherence threshold, $d_{min}$ are considered as stuck bubbles. The temporal coherence threshold is set to 0.85. This value is determined through a heuristic approach where the temporal coherence of manually identified bubbles is considered. A minimum intensity threshold is set to avoid counting of low-intensity noise. The minimum intensity threshold is set to 1000. It is important to emphasize that this algorithm counts the number of stuck phase-shift bubbles present, and not the total number of activated phase-shift bubbles.  
 
-\subsection{Counting real data}
-For 16 animals, 125 data sets are processed, i.e. motion correction, background subtraction and automatic counting is performed. For each animal, one of the data sets images administration of ACT\texttrademark{} dilution. In these 16 videos, stuck phase-shift bubbles have been counted manually~\cite{Healey2014}. The results from manual and automatic counting are compared.
+\subsection{Counting number of phase-shift bubbles in tumor}
+For 16 animals, 125 data sets are processed in total, i.e. motion correction, background subtraction and automatic counting are performed. For each animal, one of the data sets images administration of ACT\texttrademark{} dilution. In these 16 videos, stuck phase-shift bubbles have been counted manually by Andrew Healey~\cite{Healey2014}. The manual counting is performed visually by careful identification of the phase-shift bubbles in the ultrasound videos. The results from manual and automatic counting are compared.
 
 \subsubsection{Choosing representative number} 
 For each data set, the maximal counted number density is the representative value when the automatically and manually results are compared. The first 20 frames are excluded because they may be considerably affected by the previous data set (Figure \ref{Fig:first_frames}). The reason for this is that the correlation matrix is continuously computed across consecutive data sets. The maximum value is chosen because it is closest to the total number of phase-shift bubbles activated throughout the video. This follows from counting algorithm which count number of present phase-shift bubbles. The number of bubbles present has to be lower or equal to the actual number of bubbles activated throughout the sequence.
@@ -194,7 +205,9 @@ The algorithm adding the synthesized phase-shift bubbles to a background is desc
 
 \subsubsection{Phase-shift bubbles intensity distribution}
 \label{PS intensity distribution}
-A heuristic approach was used to estimate the intensity distribution for the activated phase-shift bubbles. In a set containing 63 identified phase-shift bubbles, the maximum intensity was plotted for each frame (Figure \ref{Fig:bubble_tic}). For each bubble the overall maximum value was used in a set, from which a gamma distribution was estimated (Figure \ref{Fig:gamma_fit}). A theoretical approach is possible, however this requires several assumptions regarding size and activation distribution of emulsion droplets and size of activated phase-shift bubbles.  The heuristic approach was therefore assumed to provide better results, and was chosen in favour. 
+A heuristic approach was used to estimate the intensity distribution for the activated phase-shift bubbles. In a set containing 63 identified phase-shift bubbles, the maximum intensity was plotted for each frame (Figure \ref{Fig:bubble_tic}). For each bubble the overall maximum value was used in a set, from which a gamma distribution was estimated (Figure \ref{Fig:gamma_fit}). 
+
+The intensity distribution could probably been estimated through a more theoretical approach. However, the size distribution of activated emulsion droplets is not known accurately. The large phase-shift bubbles will also be deformed by the surroundings, and accurate backscattering and received signal from these bubbles are difficult to predict. A theoretical approach would therefore be based assumptions with unknown legitimacy. The heuristic approach was therefore considered to provide better results, and was chosen in favour. 
 
 
 \begin{figure}[h]

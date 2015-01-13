@@ -160,23 +160,28 @@ In these equations $k$ is the wavenumber, $a$ the radius of the scatterer, and t
 It is important to keep in mind that the compressibility term in Equation \ref{rayleigh cross section} is a monopole, so for gas based microbubbles monopole scattering will dominate. In a solid medium, such as steel, with low compressibility and high density, the scattering is dominated by the dipole term. Differential scattering cross sections for spheres of steel and air is plotted in Figure \ref{fig:diff cross_sec}.
 \begin{figure}[h]
 	\centering
-	    \begin{minipage}[b]{0.3\textwidth}
+	    \begin{minipage}[b]{0.4\textwidth}
+	    	\centering
 			\includegraphics[width=\textwidth]{steel_bubble3_cross_section.png}
-			    \caption{A}
-                \label{fig:diff cross sec_steel}
+			    (a)
+%			    \caption{A}
+%                \label{fig:diff cross sec_steel}
 		\end{minipage}%
-    	\begin{minipage}[b]{0.3\textwidth}
+    	\begin{minipage}[b]{0.4\textwidth}
+    		\centering
 			\includegraphics[width=\textwidth]{diff_cross_sec_3.png}
-			    \caption{B}
-                \label{fig:diff cross sec_air}
+			(b)
+%			    \\\caption{B}
+%                \label{fig:diff cross sec_air}
 		\end{minipage}%
-		\begin{minipage}[b]{0.3\textwidth}
+		\begin{minipage}[b]{0.4\textwidth}
 			\includegraphics[width=\textwidth]{diff_cross_sec_30.png}
-			    \caption{C}
-                \label{fig:diff cross sec air_30}
+			(c)
+%			    \caption{C}
+%                \label{fig:diff cross sec air_30}
 		\end{minipage}%		
 		
-  \caption{Differential cross section for a \SI{3}{\micro\meter} sphere of steel(A) and air(B), and for a \SI{30}{\micro\meter} sphere of air(C)~\cite{Healey2012}. The dipole term dominates in A while the monopole term dominates in B. In C there is more of a balance between the monopole and dipole term.}
+  \caption{Differential cross section for a \SI{3}{\micro\meter} sphere of steel (a) and air (b), and for a \SI{30}{\micro\meter} sphere of air (c)~\cite{Healey2012}. The dipole term dominates in A while the monopole term dominates in B. In C there is more of a balance between the monopole and dipole term.}
   \label{fig:diff cross_sec}
 \end{figure} 
 
@@ -341,28 +346,35 @@ Amplitude modulation is a technique using two or three pulses with different amp
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{amplitude_modulation.png}
-	\caption{The amplitude modulation is based on three pulses where the first and last pulse has half the amplitude of the second pulse. The non-linear signal is enhanced by subtracting the second pulse from the sum of the first and last~\cite{Hoskins2010}.}
+	\caption{This amplitude modulation is based on three pulses where the first and last pulse have half the amplitude of the second pulse. The linear signal part of the signal is suppressed by subtracting the second pulse from the sum of the first and last pulse~\cite{Hoskins2010}.}
 	\label{Fig:amplitude modulation}
 \end{figure}
 \clearpage
 \subsubsection{Phase-shift bubbles}
-The drug carrier used in this project is a two-component particle, composed of negatively charged gas microbubbles and positively charged emulsion droplets. This concept is called Acoustic cluster therapy (ACT\texttrademark{}) and is illustrated in Figure \ref{Fig:ACT}. Both the gas microbubble and the droplet have an initial size about \SIrange{2}{3}{\micro\metre}. The gas microbubble consist of a low solubility perfluorocarbon gas encapsulated in a negatively charged phospholipid membrane, e.g. Sonazoid\texttrademark{}. The emulsion droplet consist of perfluoro-methylcyclopentane (pf-MCP), stabilized by a positively charged phospholipid membrane. A chemotherapeutic drug can either be dissolved in the perfluorated oil phase or be co-administrated with a non-loaded cluster dispersion. When the bubbles and droplets are mixed, clusters of droplets and bubbles will form due to electrostatic attractive forces.
+\label{sec:phase-shift bubbles}
+This description of the phase-shift bubbles follows the review written by \citet{Healey2013}. The drug carrier used in this project is a two-component particle, composed of negatively charged gas microbubbles and positively charged emulsion droplets. This concept is called Acoustic cluster therapy (ACT\texttrademark{}) and is illustrated in Figure \ref{Fig:ACT}. Both the gas microbubble and the droplet have an initial size about \SIrange{2}{3}{\micro\metre}. The gas microbubble consist of a low solubility perfluorocarbon gas encapsulated in a negatively charged phospholipid membrane, e.g. Sonazoid\texttrademark{}. The emulsion droplet consist of perfluoro-methylcyclopentane (pf-MCP), stabilized by a positively charged phospholipid membrane. A chemotherapeutic drug can either be dissolved in the perfluorated oil phase or be co-administrated with a non-loaded cluster dispersion. When the bubbles and droplets are mixed, clusters of droplets and bubbles will form due to electrostatic, attractive forces.
 
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{PS_compound.png}
-  \caption{Illustration of phase-shift bubble, with the gas microbubble (left) and microdroplet (right).}
+  \includegraphics[width=\linewidth]{ACT.png}
+  \caption{Illustration of phase-shift bubble, with the gas microbubble (left) and microdroplet (right). The drug (yellow) is dissolved in the microdroplet.}
   \label{Fig:ACT}
 \end{figure}
 
 
-When the clusters are exposed to ultrasound of standard medical frequency (\SIrange{2}{15}{\mega\hertz}) and intensity~\cite{Hoskins2010}, the microbubble will oscillate and transfer energy to the droplet through mechanical interactions at the boundary. This initiates a fusion into a gas and liquid mixture, encapsulated by a mixed surfactant membrane. The fluid will vaporize and expand to a gas bubble of approximately \SI{30}{\micro\metre}. The enlarged gas bubble can block the capillary network and maintain the local concentration of the released drug.  
+When the clusters are exposed to ultrasound of standard medical frequency (\SIrange{1}{5}{\mega\hertz}) and intensity~\cite{Hoskins2010}, the microbubble will oscillate and transfer energy to the droplet through mechanical interactions at the boundary. This initiates a fusion into a gas and liquid mixture, encapsulated by a mixed surfactant membrane. The fluid will vaporize and expand to a gas bubble of approximately \SI{30}{\micro\metre}. If drug is dissolved in the droplet, it is released upon vaporization. The enlarged gas bubble can block the capillary network and maintain the local concentration of the released drug.  
 
-If we assume rapid thermal conduction from surrounding blood, the partial pressure of the pf-MCP is close to the vapour pressure at body temperature. This vapour pressure is lower than the local hydrostatic pressure, and initially, the difference is equalized by the gas from the microbubble. An inward diffusion of $\mathrm{O}_2$, $\mathrm{N}_2$, $\mathrm{CO}_2$, $\mathrm{H}_2\mathrm{O}$ and $\mathrm{Ar}$ will exist simultaneously, and these gases will also contribute to the equalization of the hydrostatic pressure. The inward diffusion is driven by partial pressure gradients of the respective gases. 
+If we assume rapid thermal conduction from surrounding blood, the partial pressure of the pf-MCP is close to the vapour pressure at body temperature. This vapour pressure is lower (\SIrange{\sim14}{22}{\kilo\pascal})\footnote{Vapor pressure of pf-MCP at body temperature: \SI{76}{\kilo\pascal}. Blood gas partial pressure in arterial and venous blood, respectively: \SIlist{98;90}{\kilo\pascal}~\cite{Healey2013}.}. than the local hydrostatic pressure, and initially, the difference is equalized by the gas from the microbubble. An inward diffusion of the main gases dissolved in blood (i.e. $\mathrm{O}_2$, $\mathrm{N}_2$, $\mathrm{CO}_2$, $\mathrm{H}_2\mathrm{O}$ and $\mathrm{Ar}$) will exist simultaneously. These gases will contribute to the equalization of the hydrostatic pressure. The inward diffusion is driven by partial pressure gradients of the respective gases. 
 
-The evaporation will not occur if the blood is under-saturated of the previously mentioned gases. Excessive hydrostatic pressure inside the bubble will reduce the pressure gradient and may halt the evaporation. This may occur because of excessive surface tension or high hydrostatic pressure in the surrounding blood. The initial evaporation occurs in less than a millisecond. The inward diffusion may continue after the evaporation, until a maximum size is reached after approximately 20-30 seconds~\cite{Healey_pc}.
+The evaporation will not occur if the blood is under-saturated of the previously mentioned gases. Excessive hydrostatic pressure inside the bubble will reduce the pressure gradient and may halt the evaporation. This may occur because of excessive surface tension or high hydrostatic pressure in the surrounding blood. The initial evaporation occurs in less than a millisecond. The inward diffusion may continue after the evaporation, until a maximum size is reached after approximately 20-30 seconds~\cite{Healey_pc}. After the bubble has reached its maximum size, it will dissolve within minutes (Figure \ref{Fig:bubble growth}).
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{blood_pressure.png}
+	\caption{Estimated phase-shift bubble diameter \textit{in vivo} for a oil droplet of initial size \SI{4}{\micro\meter}. Arterial and venous partial gas pressure is plotted with atmospheric pressure for comparison. We see that the size of the phase-shift bubble is reduced by increased blood pressure.}
+	\label{Fig:blood_pressure}
+\end{figure}
 
 %%No hard data exists for the ACT bubbles effects, except for the delivery experiments Annemieke has performed.  I would consider adding some simulations from Lars Hoff’s bubblesim programme.   I can help with this.
 Application of low MI and low frequency (\SIrange{0.1}{2}{\mega\hertz}) ultrasound onto the phase-shift bubbles initiate oscillations and has shown to increase the drug accumulation in tissue~\cite{wamel2014}. We know that ultrasound can initiate microbubble oscillation and increase cell membrane permeability for macromolecules~\cite{VanWamel2006a}. The oscillating phase-shift bubbles may activate the same mechanisms.
@@ -465,8 +477,22 @@ F(0) = X_{pf}(\mu +\vartheta +1),\quad A(0)=(1-X_{pf})(\mu+\vartheta+1)\quad
 The growth of the bubble radius and volume is calculated from these differential equations (Figure \ref{Fig:bubble growth}), with parameter values given in Table \ref{tab:growth parameters}~\cite{healey2013}.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\linewidth]{bubble_growth2_4.png}
-	\caption{Calculated growth of volume and diameter for an emulsion droplet using Equation \eqref{diff1}, \eqref{diff2} and \eqref{diff3}. The lifetime of the 2 micron droplet (top) is much shorter than the lifetime of the 4 micron droplet (bottom)~\cite{healey2013}.}
+    	\begin{subfigure}[t]{\textwidth}
+    		\centering
+    		\includegraphics[width=\textwidth]{bubble_growth2.png}
+    		(a)
+    		%			    \\\caption{B}
+    		%                \label{fig:diff cross sec_air}
+    	\end{subfigure}\\
+    	\begin{subfigure}[t]{\textwidth}
+    		\centering
+    		\includegraphics[width=\textwidth]{bubble_growth4.png}
+    		(b)
+    		%			    \caption{C}
+    		%                \label{fig:diff cross sec air_30}
+    	\end{subfigure}%		
+ 
+	\caption{Calculated growth of volume and diameter for an emulsion droplet using Equation \eqref{diff1}, \eqref{diff2} and \eqref{diff3}. The lifetime of the 2 micron droplet (a) is much shorter than the lifetime of the 4 micron droplet (b)~\cite{healey2013}.}
 	\label{Fig:bubble growth}
 \end{figure}
 
@@ -497,25 +523,25 @@ The growth of the bubble radius and volume is calculated from these differential
 \subsubsection{Resolution and depth of view}
 The ultrasound waves used in medical imaging are emitted as short pulses, where the pulse length determines the longitudinal resolution. It is impossible to distinguish two points in the longitudinal direction separated by a distance shorter than half the pulse length. A short pulse is therefore desirable in order to produce good longitudinal resolution. The theoretical minimum pulse length is one wavelength, although this is difficult to achieve in practice. A few wavelengths is a more realistic minimum. The width of the signal frequency band increase with decreasing pulse length. 
 
-The required depth of view will depends on how deep the tissue of interest is located, but there will always be a finite required depth penetration. The attenuation of ultrasound is proportional to the frequency, so a good depth of view implies a low frequency. Hence, there will always be a trade-off between good longitudinal resolution and depth of view, and the diagnostic frequency has to be chosen according to the patient and application. 
+The required depth of view depends on how deep the tissue of interest is located, but there will always be a finite required depth penetration. Both the attenuation and the longitudinal resolution increase when the ultrasound frequency is increased. Hence, there will always be a trade-off between sufficient longitudinal resolution and the depth of view. The diagnostic frequency has to be adjusted according to the patient and application. 
 
-All ultrasound images used in this research is imaged at frequencies of \SIrange{16}{18}{\mega\hertz} with a ultrasound apparatus suited small animals. The longitudinal resolution is about \SI{\sim100}{\micro\meter}, significantly better than normal diagnostic images. These imaging frequencies are above the fundamental resonance frequency for standard contrast agents. Scattering from blood and tissue increases with frequency (Equation \eqref{rayleigh cross section}). The contrast-to-tissue ratio is therefore less. 
+All ultrasound images used in this research are recorded at frequencies of \SIrange{16}{18}{\mega\hertz} with a ultrasound apparatus suited small animals. The longitudinal resolution is about \SI{\sim100}{\micro\meter}, significantly better than normal diagnostic tumor images. These imaging frequencies are above the fundamental resonance frequency for standard contrast agents. Scattering from blood and tissue increases with frequency (Equation \eqref{rayleigh cross section}). The contrast-to-tissue ratio is therefore less. 
 
 Lateral resolution is the minimum distance perpendicular to direction of propagation required to distinguish two objects. This is determined by the width of the beam, and may vary with the depth of view. It is common to focus the beam to obtain the best resolution at the depth of interest. Strong focusing will give very good resolution at a very limited depth range, while weak focusing give medium resolution through most of the image. Temporal resolution is determined by the frame rate, which is typically between 10 and 30 frames per second. 
 
-Both the phase-shift and the Sonazoid\texttrademark{} microbubbles used in this research are smaller than the image resolution. This limits the performance of a counting algorithm, as it is impossible to distinguish echoes from individual bubbles within a resolution cell. It may increase the echo amplitude, but separate intensity peaks will not appear in the image.
+Both the phase-shift and the Sonazoid\texttrademark{} microbubbles used in this study are smaller than the image resolution. This limits the performance of a counting algorithm, as it is impossible to distinguish echoes from individual bubbles within a resolution cell. It may increase the echo amplitude, but separate intensity peaks will not appear in the image.
 
 
-\subsubsection{Speckle}
+\subsubsection{Speckle noise}
 Speckle is random, deterministic noise, giving ultrasound images the characteristic, granular appearance. Speckle is present in all coherent imaging, and is caused by interference of echoes originating from scatterers within the same resolution cell. These echoes can not be distinguished by the transducer. The received signal is proportional to the sum of the waveforms, which is determined by their relative phase. The shape and size of the speckle pattern are determined by the dimensions of the imaging system and the structure of the imaged tissue~\cite{Szabo2013}.
 
 Due to speckle, even smooth tissue look granular, and this reduce contrast resolution with an order of \num{\sim 7}. The contrast resolution is a measure of the level of contrast needed for an object to be visually identifiable within an image. The multiplicative nature of speckle, means that noise is proportional to the amplitude of the echo. This increases the difficulty of identifying single microbubbles, because similar intensity variations might be caused by the speckle pattern. 
 
 \clearpage
-\subsection{Tumor and ultrasound}
-\subsubsection{Tumor structure}
+\subsection{Solid tumor and ultrasound}
+\subsubsection{Solid tumor structure}
 
- A tumor is a mass of tissue with abnormal growth, made up of malignant and non-malignant cells, lymph and blood vessels, and the extracellular matrix. A tumor can usually be characterized as benign or malignant, where a benign tumor is localized with a well-defined boundary and do usually not pose any health threat. A malignant tumor is what we know as cancer, and can invade adjacent tissue, perform metastasis and be life threatening~\cite{king2006cancer}. 
+ A solid tumor is a mass of tissue with abnormal growth, made up of malignant and non-malignant cells, lymph and blood vessels, and the extracellular matrix. A tumor can usually be characterized as benign or malignant, where a benign tumor is localized with a well-defined boundary and do usually not pose any health threat. A malignant tumor is what we know as cancer, and can invade adjacent tissue, perform metastasis and be life threatening~\cite{king2006cancer}. 
 
 A cancer starts from one abnormal cell, which proliferates through cell division resulting in uncontrolled growth. To maintain growth beyond a critical size of about \SI{1}{\milli\metre}~\cite{king2006cancer}, new blood vessels are induced (angiogenesis) to meet the need of nutrients and oxygen. 
 
@@ -523,7 +549,7 @@ The invasion of adjacent, normal tissue distinguish the malignant tumor from the
  
 An important feature that permits localized drug delivery is the structure of the cancer vasculature. This vasculature is developed through the angiogenesis, which is enhanced by vascular endothelial growth factors (VEGFs). The VEGFs diffuse through the extracellular matrix (ECM) and connect to receptors on the inner surface of the vessel walls (Endothelial cells)~\cite{Koumoutsakos2013}. These growth factors stimulates both the production of more endothelial cells, and the construction of new vessels through the extracellular matrix~\cite{Nishida2006}. This results in a structure that differ from normal vasculature. The tumor vasculature has increased vessel density and vessel size, a large amount of dead-ends and a disordered branching pattern.    
 
-The abnormal amount of endothelial cells leads to vascular walls that lack in coverage of perivascular cells and tight adherens junctions, which usually stabilize the vessel. Hence, there will be large intracellular spaces in the vessel wall, and the vessels become leaky. This allow the cancer cells to enter the vasculature and enhance macromolecular transport through the vessel wall. Tumors also tend to have a reduced or impaired lymphatic system. This reduce the capability of draining extravasated fluid and macromolecules. This is called the \textit{enhanced permeability and retention}(EPR) effect~\cite{Matsumura1986}. The EPR effect enhances local delivery of cancer drugs.
+The abnormal amount of endothelial cells leads to vascular walls that lack in coverage of perivascular cells and tight adherens junctions, which usually stabilize the vessel. Hence, there will be large intracellular spaces in the vessel wall, and the vessels become leaky. This allow the cancer cells to enter the vasculature and enhance macromolecular transport through the vessel wall. Tumors also tend to have a reduced or impaired lymphatic system. This reduce the capability of draining extravasated fluid and macromolecules. This is called the \textit{enhanced permeability and retention}(EPR) effect~\cite{Matsumura1986}. The EPR effect enhances local retention of cancer drugs.
 
 
 
@@ -547,7 +573,7 @@ The extracellular matrix found in tumors is unusually stiff, and the solid stres
 
 \subsubsection{Cancer treatment}
 
-Despite the massive amount of research, new drug development, genetic tumor characterization, improved radiotherapy and surgery, many young people die from cancer every year. Recent research by ~\citet{Tomasetti2014} has revealed that most cancers are all about chance. Still, certain cancer types are strongly related to inherited predispositions or  lifestyle, such as smoking and exposure to sunlight. Prevention is therefore an important action in the battle against cancer.  
+Despite the massive amount of research, new drug development, genetic tumor characterization, improved radiotherapy and surgery, many young people die from cancer every year. Certain cancer types are strongly related to inherited predispositions, environmental factors, or lifestyle, such as smoking and exposure to sunlight. Prevention is therefore an important action in the battle against cancer. However, recent research by ~\citet{Tomasetti2014} claims that most cancers ($\nicefrac{2}{3}$) are due to "bad luck", i.e. caused by random mutations in normal, non-cancerous stem cells. 
 
 Screening is another action that involves examination of people without symptoms, and may reveal cancer in an early stage. Early detection is shown to be decisive for the effect of the cancer treatment and the outcome for the patient~\cite{king2006cancer}~\cite{Jordan1986}. In high-risk groups and in certain cancers,  screening is applicable and useful, but the benefit of general mass screening is still debated. 
 
@@ -555,18 +581,18 @@ The main available cancer treatments are surgery, radiotherapy and chemotherapy,
 
 Chemotherapy includes both cytotoxic and cytostatic drugs to kill malignant cells or prevent further growth~\cite{Skeel2011}. Chemotherapy is a systemic treatment as the drugs are distributed through the circulatory system. The benefit of systemic treatment is potential of targeting metastasis as well as the primary tumors. The drawback is that only a small fraction of the dose reaches the malignant cells. The rest of the dose causes dangerous side effects to healthy tissue~\cite{doi:10.1056/NEJM200106283442607}. These side effects limit the doses. This is described by a therapeutic index being close to one. The therapeutic index is the ratio of a lethal dose and the minimum dose required to achieve a therapeutic effect.
  
-\subsubsection{Localized drug delivery}
-Increased targeting of the chemotherapeutic drugs enables the delivery of more drug to the malignant cells without an increase in the total dose. The increased leakiness of the tumor vasculature, the over-expression of specific receptors and impaired lymphatic system are three characteristic properties of tumor tissue which permits localized delivery. Recent research has enabled drug carriers on nanoscale which utilize these possibilities~\cite{Jafari}. The research in this field can be divided into passive, active and triggered targeting. Note that localized drug delivery does not treat potential metastasis, but can be administrated simultaneously as normal chemotherapeutics to achieve a combined effect of systemic treatment and increased local delivery.
+\subsubsection{Targeted drug delivery}
+Increased targeting of the chemotherapeutic drugs enables the delivery of more drug to the malignant cells without an increase in the total dose. The increased leakiness of the tumor vasculature, the over-expression of specific receptors and impaired lymphatic system are three characteristic properties of tumor tissue which permits targeted delivery. Recent research has enabled drug carriers on nanoscale which utilize these possibilities~\cite{Jafari}. The research in this field can be divided into passive, active and triggered targeting. 
 
 Passive targeting relies on the accumulation of drug in cancerous tissue due to the EPR effect. The drug is loaded into drug carriers which are only able to penetrate the endothelial layer if the EPR effect is present~\cite{Andresen2010}. The carriers are designed to remain in the circulatory system for a long time to provide sufficient accumulation in the tumor. These carriers are of a size \SIrange{10}{500}{\nano\meter}, although the lower cut off size varies~\cite{Hofmann}. This targeting is limited by the vascularity and leakiness of the tumor. The increased hydrostatic pressure present in tumors can also reduce the accumulation~\cite{Bae2009}.  
 
-Active targeting is conducted by drug carriers with a surface designed to stick to overexpressed receptors in the tumor vasculature or tissue. Triggered targeting utilize drug loaded particles which are activated inside the tumor causing immediate drug release. Tumors may have different pH or enzymes than normal tissue,  and these changes can trigger release. The drug release can also be activated by an external energy, such as heat, magnetic resonance, ultrasound or light~\cite{Jafari}. Ultrasound mediated drug delivery is addressed below. 
+Active targeting is conducted by drug carriers with a surface designed to stick to overexpressed receptors in the tumor vasculature or tissue. Triggered targeting utilize drug loaded particles which are activated inside the tumor to release the drug locally. Tumors may have different pH or enzymes than normal tissue, and these changes can trigger release. The drug release can also be activated by an external energy, such as heat, magnetic resonance, ultrasound or light~\cite{Jafari}. Ultrasound mediated drug delivery is addressed below. 
 	
 \subsubsection{Ultrasound mediated drug delivery}
 \label{sec:umdd}
-Ultrasound is an attractive trigger for targeted drug delivery as it is non-invasive, generally safe and well characterized. It is proved that ultrasound increase the cell membrane permeability, in particular if microbubbles are present~\cite{VanWamel2006a}. This is known as sonoporation and does mainly affect adjacent cells. Ultrasound can also increase the range of the drug after leaving the vasculature~\cite{Eggen2013}.
+Ultrasound is an attractive trigger for targeted drug delivery as it is non-invasive, generally safe and well characterized. It is proved that ultrasound increase the cell membrane permeability, in particular if microbubbles are present~\cite{VanWamel2006a}. This is known as sonoporation and does mainly affect adjacent cells. Ultrasound can also increase the range of the drug after leaving the vasculature~\cite{Eggen2013}. Note that ultrasound mediated drug delivery does not treat potential metastasis, but can be administrated simultaneously as normal chemotherapeutics to achieve a combined effect of systemic treatment and increased targeted delivery.
 
-There are several mechanisms that can explain the increased drug transport, although their relative importance is unknown. One phenomenon is called microstraming and is caused by stable microbubble oscillation. This induces circulating eddies around the microbubble, which increases the fluid velocity and shear forces~\cite{Nyborg1982}. This may disrupt cell membranes~\cite{Marmottant2003}. A second mechanism is that the oscillations move the cell membrane and create hydrophilic pores (Figure \ref{Fig:oscillating_bubble})~\cite{VanWamel2006a}.
+There are several mechanisms that can explain the increased drug transport, although their relative importance is unknown. One phenomenon is called micro-streaming and is caused by stable microbubble oscillation. This induces circulating eddies around the microbubble, which increases the fluid velocity and shear forces~\cite{Nyborg1982}. This may disrupt cell membranes~\cite{Marmottant2003}. A second mechanism is that the oscillations move the cell membrane and create hydrophilic pores (Figure \ref{Fig:oscillating_bubble})~\cite{VanWamel2006a}.
 
 Ultrasound can also be utilized to collapse microbubbles. This can release drugs attached to the microbubbles surface, and the collapse can cause a shockwave capable of damaging surrounding tissue and increase drug transportation. If the microbubble is adjacent to a large cell membrane, this may induce an asymmetric collapse and a jet of fluid. This may rupture the cell membrane ~\cite{Pitt2004}.  
 
@@ -581,7 +607,9 @@ Ultrasound can also be utilized to collapse microbubbles. This can release drugs
 The aforementioned mechanisms have been utilized \textit{in vivo} to enhance drug delivery. Small amounts of hydrophilic drug can be attached to the surface of the microbubble, or hydrophobic drug can be incorporated into the shell of the microbubble. The drug is then released as the microbubbles are disrupted by an ultrasound pulse~\cite{Liu2006}. Drugs have also been loaded into liposomes and administered together with microbubbles, but the effect is then very dependent on the simultaneous localization of the liposome and microbubble in the tumor vasculature. To ensure the co-localization the microbubble and the drug can be encapsulated together within a liposome membrane shell~\cite{Ibsen2011}.
 
 
-The ACT\texttrademark{} phase-shift bubbles are different from other microbubbles used for ultrasound mediated drug delivery. The loading of the drug into, or onto, the shell severely limits the dose carried by each microbubble. The ACT\texttrademark{} phase-shift bubbles can carry \num{\sim100} times this dose, because the drug is loaded into the volume of the emulsion droplet. The sonoporation effects mentioned above relies on cells being very close to the oscillating bubble. It follows from the phase-shift bubbles being stuck, that they guaranteed to be adjacent the vascular wall. The increased radius of the phase shift bubbles (\num{\sim10} times the radius of normal microbubbles) increase the amount of fluid moved by the oscillating bubble by an order of \num{\sim1000}. The resonance frequency of the phase-shift bubbles is on the other hand lower than normal microbubbles, causing slower oscillations. If we consider the produced shear forces, the theory predicts that the increased size and the decreased oscillation velocity equalizes each other. This support the assumption that the sonoporation mechanisms caused by normal microbubbles may also be initiated by the phase-shift bubbles~\cite{Healey_pc}.
+The ACT\texttrademark{} phase-shift bubbles (Section \ref{sec:phase-shift bubbles}) are different from other microbubbles used for ultrasound mediated drug delivery. The loading of the drug into, or onto, the shell severely limits the dose carried by each microbubble. The ACT\texttrademark{} phase-shift bubbles can carry \num{\sim100} times this dose, because the drug is loaded into the volume of the emulsion droplet. The sonoporation effects mentioned above relies on cells being very close to the oscillating bubble. It follows from the phase-shift bubbles being stuck, that they guaranteed to be adjacent the vascular wall. The increased radius of the phase shift bubbles (\num{\sim10} times the radius of normal microbubbles) increase the amount of fluid moved by the oscillating bubble by an order of \num{\sim1000}. The resonance frequency of the phase-shift bubbles is on the other hand lower than normal microbubbles, causing slower oscillations. If we consider the produced shear forces, the theory predicts that the increased size and the decreased oscillation velocity equalizes each other. This support the assumption that the sonoporation mechanisms caused by normal microbubbles may also be initiated by the phase-shift bubbles~\cite{Healey_pc}.
+
+The phase-shift bubbles are designed to be utilized in ultrasound mediated drug delivery. The amount of released drug will be proportional to the number of activated phase-shift bubbles. It is therefore important to measure the number of activated bubbles, and compare this to the observed treatment efficiency. The phase-shift bubbles can also be utilized to image the tumor vasculature.
 
 %Another strategy is the use of nanoparticles made from ......
 
@@ -626,9 +654,9 @@ The phase-shift bubbles respond fundamentally different from the Sonazoid\texttr
 
 When imaging deposition and accumulation of ACT\texttrademark{} bubbles, the signal has two components - signal from free flowing (or possibly stuck) Sonazoid\texttrademark{} and deposited ACT\texttrademark{} bubbles. The problem is essentially to differentiate the stuck ACT\texttrademark{} from the free flowing Sonazoid\texttrademark{}. This is accomplished by using the relatively greater signal in B-mode, and the stationary nature of the ACT\texttrademark{} bubbles. Image areas where phase-shift bubbles are present should have a consistency in image intensity. A consistency check can be applied using the fact that Sonazoid\texttrademark{} bubbles are destroyed by high power ultrasound, while ACT\texttrademark{} bubbles are not. 
 
-A few algorithms that handle quantification of stationary bubbles are published. In the work by ~\citet{Rychak2006} the free bubbles were distinguished from the stuck bubbles by simply waiting for the circulating microbubbles to clear. The microbubbles are taken up in the liver or lungs, although this may take several minutes. The stuck microbubbles can then be segmented from the tissue signal by either using non-linear imaging, or by destroying the microbubbles with a high power ultrasound pulse. The signal left, can be subtracted from the prior signal to get the signal caused by microbubbles.
+The last part of the image processing is identification and counting of the phase-shift bubbles. A few algorithms that handle quantification of stationary bubbles are published. In the work by ~\citet{Rychak2006} the free bubbles were distinguished from the stuck bubbles by simply waiting for the circulating microbubbles to clear. The microbubbles are taken up in the liver or lungs, although this may take several minutes. The stuck microbubbles can then be segmented from the tissue signal by either using non-linear imaging, or by destroying the microbubbles with a high power ultrasound pulse. The signal left, can be subtracted from the prior signal to get the signal caused by microbubbles.
 
-Two other methods are described by ~\citet{Zhao2007}. The first method utilizes a image-push-image sequence, where they first take one image before ultrasound radiation force is used to promote adhesion of the microbubbles. A second image is captured, and the the first image is subtracted to segment the contrast agent. The second method utilizes harmonic imaging and a high-pass filter to differentiate tissue and contrast agent. For both methods the signal from free flowing microbubbles is removed by low-pass interframe filtering. A low-pass filtering is also applied by ~\citet{Needles2009} to distinguish free and stuck microbubbles. Here, subharmonic imaging is used to segment microbubbles from the tissue. This method is successfully applied \textit{in vitro}.  
+Two other methods are described by ~\citet{Zhao2007}. The first method utilizes a image-push-image sequence, where they first take one image before ultrasound radiation force is used to promote adhesion of the microbubbles. A second image is captured, and the first image is subtracted to segment the contrast agent. The second method utilizes harmonic imaging and a high-pass filter to differentiate tissue and contrast agent. For both methods the signal from free flowing microbubbles is removed by low-pass interframe filtering. A low-pass filtering is also applied by ~\citet{Needles2009} to distinguish free and stuck microbubbles. Here, subharmonic imaging is used to segment microbubbles from the tissue. This method is successfully applied \textit{in vitro}.  
 \clearpage   
 \subsection{Image processing}
 \subsubsection{Transducer}

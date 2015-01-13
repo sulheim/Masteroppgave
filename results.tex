@@ -1,4 +1,5 @@
 %Results
+\FloatBarrier
 \section{Results}
 This chapter is divided in three parts. The first part deals with the qualitative results. This includes response to high power ultrasound, intensity growth curves, and phase-shift bubble behaviour. The second part provides a quantitative validation of the counting algorithm. This validation is based upon the randomly synthesized data set. The last part presents the results from the processing and counting of the real data set. 
  
@@ -6,19 +7,20 @@ This chapter is divided in three parts. The first part deals with the qualitativ
 This section provides qualitative results, following the prejudices stated in Section \ref{sec:qualitative}.
 \subsubsection{Effect of high power ultrasound}
 
-The counted number of bubbles before and after two high ultrasound bursts in non-linear and linear imaging mode were available for 8 and 13 animals, respectively. Relative change after two flash pulses is shown in Figure \ref{High power US non-lin} and \ref{High power US lin}. Note that the high power ultrasound burst are extended (\SI{\sim 2}{\second}) in non-linear mode, while they are extremely short in linear mode (less than \SI{0.1}{\second}). Single bubble intensity curves subject to two short flashes in linear imaging mode are shown in Figure \ref{Fig:high_power_US}. 
+The counted number of bubbles before and after two high ultrasound bursts in non-linear and linear imaging mode were available for 8 and 13 animals, respectively. Relative change after two bursts is shown in Figure \ref{High power US non-lin} and \ref{High power US lin}.
+% Note that the high power ultrasound burst are extended (\SI{\sim 2}{\second}) in non-linear mode, while they are extremely short in linear mode (less than \SI{0.1}{\second}). Single bubble intensity curves subject to two short bursts in linear imaging mode are shown in Figure \ref{Fig:high_power_US}. 
 %Sett inn bilde av aktiverte boble fra flash
 \begin{figure}
 \centering
-\begin{minipage}[t]{.45\textwidth}
+\begin{minipage}[t]{.5\textwidth}
 \centering
-\includegraphics[width=.8\textwidth,height=4cm]{relative change after high power US non linear.png}
+\includegraphics[width=\textwidth,height=4cm]{relative change after high power US non linear.png}
 \caption{Relative change in the counted density before and after two high power ultrasound bursts in non-linear imaging mode. Note that 0\% indicates no change.}
 \label{High power US non-lin}
 \end{minipage}\hfill
-\begin{minipage}[t]{.45\textwidth}
+\begin{minipage}[t]{.5\textwidth}
 \centering
-\includegraphics[width=.8\textwidth,height=4cm]{relative change after high power US linear.png}
+\includegraphics[width=\textwidth,height=4cm]{relative change after high power US linear.png}
 \caption{Relative change in counted density before and after two high power ultrasound bursts in linear imaging mode. Note that 0\% indicates no change.}
 \label{High power US lin}
 \end{minipage}
@@ -65,7 +67,24 @@ The phase-shift bubble dynamics are also visible in Figure \ref{bubble_zoom} and
 
 \clearpage
 \subsection{Counting of synthesized data}
-The synthesized data is based on three different background videos. The three data sets and respective non-linear best fit are found in Figure \ref{close comoarison}. The data is log-transformed and fitted to a third degree polynomial. The curve fitting is performed on the log-transformed data because of the multiplicative nature of speckle noise. A logarithmic transformation converts multiplication to addition, and makes the noise almost normally distributed (Figure \ref{Fig:log_normal}). The entire set, composed of all data from the three backgrounds, is presented in Figure \ref{Fig:counted_vs_inserted_all} and \ref{Fig:counted_vs_inserted_all_small}.
+A total of 81 videos were synthesized and processed. The result is found for a low (7) and high (258) number of phase shift bubbles in Figure \ref{synthesized low} and \ref{Fig:saturation}, respectively. We see that the program is counting too few bubbles (17) in the high number video (Figure \ref{Fig:saturation}) while the result is almost correct (5 of 7) in the low number video (\ref{Fig:synthesized low}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{synthesized_low.png}
+	\cprotect\caption{Counting of a synthesized data set The corresponding movie is found at  \path{F:\usb\avi\2014-05-02-09-51-16_PS_counted_7.avi}.}
+	\label{Fig:synthesized low}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{saturation.png}
+	\cprotect\caption{Saturation is clearly seen in as large clusters of bubbles recognized as one bubble. The corresponding movie is found at  \path{F:\usb\avi\2014-05-01-11-44-15_PS_counted_258.avi}.}
+	\label{Fig:saturation}
+\end{figure}
+
+The synthesized data is based on three different background videos. The three data sets and respective non-linear best fit are found in Figure \ref{close comparison}. The data is log-transformed and fitted to a third degree polynomial. The curve fitting is performed on the log-transformed data because of the multiplicative nature of speckle noise. A logarithmic transformation converts multiplication to addition, and makes the noise almost normally distributed (Figure \ref{Fig:log_normal}). The entire set, composed of all data from the three backgrounds, is presented in Figure \ref{Fig:counted_vs_inserted_all} and \ref{Fig:counted_vs_inserted_all_small}.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{close_comparison.png}
@@ -123,8 +142,13 @@ If we swap the axes, we can plot the actual number density as a function of the 
 \end{figure}
 
 
-\subsection{Counting of real data}
-Counted number density for the 16 animals are presented together with the manually counted results (Figure \ref{Fig:Number of counted bubbles} and \ref{Fig:Number density of counted bubbles}). The bubble count representing each animal is the maximum count during the video of ACT\texttrademark{} injection. Results for all 125 video sequences are found in Appendix (\ref{raw counting}). Image of counting during ACT\texttrademark{} administration is found in Figure \ref{Fig:counting_administration}. The contrast agent is coloured in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.
+\subsection{Counting of phase-shift bubbles in tumor}
+Image of counting during ACT\texttrademark{} administration is found in Figure \ref{Fig:counting_administration}. The contrast agent is coloured in green. The blue boundary defines the region of interest, and counting is only performed within this area. Areas which are identified as stuck phase-shift bubbles are circumscribed with red.
+
+Counted number density for the 16 animals are presented together with the manually counted results (Figure \ref{Fig:Number of counted bubbles} and \ref{Fig:Number density of counted bubbles}). There may be small differences between the ROI used for the automatic and manually counted data. This affects the number of counted bubbles, N. The bubble count representing each animal is the maximum count during the video of ACT\texttrademark{} injection. Results for all 125 video sequences are found in Appendix (\ref{raw counting}). Although the largest tumor holds the most phase-shift bubbles, it is no obvious relationship between the tumor area and the number of phase-shift bubbles (Figure \ref{Fig:area_vs_N}).
+
+The average and standard deviation of the four different combinations of dose/activation (Section \ref{sec protocols}) is presented in Figure \ref{Fig:group avg}. From a two-way ANOVA analysis we find that there is a significant difference between the two doses given (p = 0.023), but no significant difference between the two transducers (p = 0.146).
+
 
 \begin{figure}[h]
   \centering
@@ -133,7 +157,7 @@ Counted number density for the 16 animals are presented together with the manual
   \label{Fig:counting_administration}
 \end{figure}
 
-There may be small differences between the ROI used for the automatic and manually counted data. This affects the number of counted bubbles, N.
+
 
 \begin{figure}[h]
   \centering
@@ -149,23 +173,38 @@ There may be small differences between the ROI used for the automatic and manual
   \label{Fig:Number density of counted bubbles}
 \end{figure}
 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{area_vs_N.png}
+	\caption{Plot of number of counted phase-shift bubbles versus tumor area. The tumor area is the area inside the defined region of interest.}
+	\label{Fig:area_vs_N}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{gropu_avg.png}
+	\caption{Average and standard deviation of number of counted phase-shift bubbles for the four different combinations of dose and transducer.}
+	\label{Fig:group avg}
+\end{figure}
+
+
 For all 16 animals, time-intensity curves showing the integrated intensity within the ROI as a function of time is plotted. The count number density is also plotted with respect to time. For one animal, this is presented in Figure \ref{Fig:tic} and \ref{Fig:tic_count}. Similar results for all animals are found in Appendix \ref{tic appendix} and \ref{App:number_density_curves}.
 
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{tic_10.jpg}
-  \caption{Time-intensity curve in animal nr. 10. These numbers represent both non-linear(red) and linear(black) contrast imaging.}
-  \label{Fig:tic}
+	\centering
+	\includegraphics[width=\linewidth]{tic_10.jpg}
+	\caption{Time-intensity curve in animal nr. 10. These numbers represent both non-linear(red) and linear(black) contrast imaging.}
+	\label{Fig:tic}
 \end{figure}
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{bubble_count5.jpg}
-  \caption{Number density as a function of time in animal nr. 5. These numbers represent both non-linear(red) and linear(black) contrast imaging.}
-  \label{Fig:tic_count}
+	\centering
+	\includegraphics[width=\linewidth]{bubble_count5.jpg}
+	\caption{Number density as a function of time in animal nr. 5. These numbers represent both non-linear(red) and linear(black) contrast imaging.}
+	\label{Fig:tic_count}
 \end{figure}
-
 \clearpage
 %Table with andys count vs my count
 
